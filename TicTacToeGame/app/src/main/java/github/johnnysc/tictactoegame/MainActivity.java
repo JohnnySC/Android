@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -14,6 +15,7 @@ public class MainActivity extends Activity {
     public static boolean isTheEnd = false;
     public static int count=0;
     public static TextView textView;
+    public static Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +36,7 @@ public class MainActivity extends Activity {
         cells[6].setImageButton((ImageButton) findViewById(R.id.cell6));
         cells[7].setImageButton((ImageButton) findViewById(R.id.cell7));
         cells[8].setImageButton((ImageButton) findViewById(R.id.cell8));
+        Button button = (Button) findViewById(R.id.button);
 
         View.OnClickListener onClickListener = new View.OnClickListener() {
             @Override
@@ -66,6 +69,9 @@ public class MainActivity extends Activity {
                     case R.id.cell8:
                         doStep(cells[8]);
                         break;
+                    case R.id.button:
+                        startNewGame();
+                        break;
                 }
             }
         };
@@ -73,6 +79,7 @@ public class MainActivity extends Activity {
         for(int i=0;i<9;i++){
             cells[i].getImageButton().setOnClickListener(onClickListener);
         }
+        button.setOnClickListener(onClickListener);
 
         changePlayer();
     }
@@ -103,16 +110,41 @@ public class MainActivity extends Activity {
 
     public void checkTheEnd(){
         for(int i=0;i<3;i++) {
-            if(cells[3*i].getValue()==cells[3*i+1].getValue() && cells[3*i+1].getValue()==cells[3*i+2].getValue() && cells[3*i].getValue()>0 ||
-                    cells[i].getValue()==cells[i+3].getValue() && cells[i+3].getValue()==cells[i+6].getValue() && cells[i].getValue()>0)
+            if(cells[3*i].getValue()==cells[3*i+1].getValue() && cells[3*i+1].getValue()==cells[3*i+2].getValue() && cells[3*i].getValue()>0)
+            {
+                isTheEnd = true;
+                highlightCells(cells[3*i],cells[3*i+1],cells[3*i+2]);
+            }
+             else if (cells[i].getValue()==cells[i+3].getValue() && cells[i+3].getValue()==cells[i+6].getValue() && cells[i].getValue()>0)
+            {
                 isTheEnd=true;
+                highlightCells(cells[i],cells[i+3],cells[i+6]);
+            }
         }
-        if(cells[0].getValue()==cells[4].getValue() && cells[4].getValue()==cells[8].getValue() && cells[8].getValue()>0 ||
-                cells[2].getValue()==cells[4].getValue() && cells[4].getValue()==cells[6].getValue() && cells[6].getValue()>0  )
+        if(cells[0].getValue()==cells[4].getValue() && cells[4].getValue()==cells[8].getValue() && cells[8].getValue()>0 )
+        {
             isTheEnd = true;
-        showGameOver();
+            highlightCells(cells[0],cells[4],cells[8]);
+        }
+        else if(cells[2].getValue()==cells[4].getValue() && cells[4].getValue()==cells[6].getValue() && cells[6].getValue()>0  ) {
+           isTheEnd = true;
+            highlightCells(cells[2],cells[4],cells[6]);
+        }  showGameOver();
     }
 
+    public void highlightCells(Cell cell1,Cell cell2, Cell cell3) {
+        if (cell1.getValue() == 1) {
+            cell1.getImageButton().setImageResource(R.drawable.x2);
+            cell2.getImageButton().setImageResource(R.drawable.x2);
+            cell3.getImageButton().setImageResource(R.drawable.x2);
+        }
+        else {
+            cell1.getImageButton().setImageResource(R.drawable.o2);
+            cell2.getImageButton().setImageResource(R.drawable.o2);
+            cell3.getImageButton().setImageResource(R.drawable.o2);
+        }
+
+    }
    public void showGameOver(){
         String result1 = "Game Over! Player "+player+" won!";
         String result2 = "Game Over! Draw!";
@@ -123,6 +155,18 @@ public class MainActivity extends Activity {
         else
             changePlayer();
    }
+
+    public void startNewGame(){
+        for(Cell cell: cells) {
+            cell.refreshCell();
+            cell.getImageButton().setImageResource(R.drawable.empty);
+        }
+        player=1;
+        isTheEnd=false;
+        count=0;
+        textView.setText("New Game! Player 1");
+
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

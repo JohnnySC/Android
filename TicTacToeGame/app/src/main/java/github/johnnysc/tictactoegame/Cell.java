@@ -28,5 +28,9 @@ public class Cell {
     public int getValue(){
         return value;
     }
+    public void refreshCell(){
+        this.Empty = true;
+        this.value = 0;
+    }
 
 }

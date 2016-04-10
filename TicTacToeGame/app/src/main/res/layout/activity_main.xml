@@ -13,54 +13,53 @@ tools:context=".MainActivity">
 android:layout_width="wrap_content"
 android:layout_height="wrap_content"
 android:id="@+id/cell0"
-android:layout_alignParentLeft="true"
-android:layout_alignParentStart="true"
-android:src="@drawable/empty" />
+    android:src="@drawable/empty"
+    android:layout_alignTop="@+id/cell1"
+    android:layout_alignLeft="@+id/cell3"
+    android:layout_alignStart="@+id/cell3" />
 
 <ImageButton
 android:layout_width="wrap_content"
 android:layout_height="wrap_content"
 android:id="@+id/cell1"
 android:src="@drawable/empty"
-    android:layout_alignTop="@+id/cell0"
-    android:layout_toRightOf="@+id/cell0"
-    android:layout_toEndOf="@+id/cell0" />
+    android:layout_alignTop="@+id/cell2"
+    android:layout_toLeftOf="@+id/cell2"
+    android:layout_toStartOf="@+id/cell2" />
 
 <ImageButton
 android:layout_width="wrap_content"
 android:layout_height="wrap_content"
 android:id="@+id/cell2"
 android:src="@drawable/empty"
-    android:layout_alignParentTop="true"
-    android:layout_toRightOf="@+id/cell1"
-    android:layout_toEndOf="@+id/cell1" />
+    android:layout_above="@+id/cell4"
+    android:layout_toRightOf="@+id/cell4"
+    android:layout_toEndOf="@+id/cell4" />
 
 <ImageButton
 android:layout_width="wrap_content"
 android:layout_height="wrap_content"
 android:id="@+id/cell3"
 android:src="@drawable/empty"
-android:layout_below="@+id/cell0"
-android:layout_alignParentLeft="true"
-android:layout_alignParentStart="true" />
+    android:layout_below="@+id/cell0"
+    android:layout_alignLeft="@+id/cell6"
+    android:layout_alignStart="@+id/cell6" />
 
 <ImageButton
 android:layout_width="wrap_content"
 android:layout_height="wrap_content"
 android:id="@+id/cell4"
 android:src="@drawable/empty"
-    android:layout_alignTop="@+id/cell3"
-    android:layout_alignLeft="@+id/cell1"
-    android:layout_alignStart="@+id/cell1" />
+android:layout_centerInParent="true" />
 
 <ImageButton
 android:layout_width="wrap_content"
 android:layout_height="wrap_content"
 android:id="@+id/cell5"
 android:src="@drawable/empty"
-    android:layout_below="@+id/cell1"
-    android:layout_toRightOf="@+id/cell1"
-    android:layout_toEndOf="@+id/cell1" />
+    android:layout_below="@+id/cell2"
+    android:layout_alignLeft="@+id/cell8"
+    android:layout_alignStart="@+id/cell8" />
 
 <ImageButton
 android:layout_width="wrap_content"
@@ -68,8 +67,8 @@ android:layout_height="wrap_content"
 android:id="@+id/cell6"
 android:src="@drawable/empty"
     android:layout_below="@+id/cell3"
-    android:layout_alignParentLeft="true"
-    android:layout_alignParentStart="true" />
+    android:layout_toLeftOf="@+id/cell4"
+    android:layout_toStartOf="@+id/cell4" />
 
 
 
@@ -96,9 +95,9 @@ android:src="@drawable/empty"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Player 1"
         android:id="@+id/textView"
-        android:layout_below="@+id/cell6"
+        android:layout_above="@+id/cell1"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="65dp" />
+        android:layout_marginBottom="15dp" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -106,8 +105,27 @@ android:src="@drawable/empty"
         android:layout_height="wrap_content"
         android:text="New Game"
         android:id="@+id/button"
-        android:layout_below="@+id/textView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/idScore"
+       android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Score"
+        android:id="@+id/idScore"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/cell7"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Exit"
+        android:id="@+id/exitButton"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

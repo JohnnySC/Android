@@ -16,6 +16,10 @@ public class MainActivity extends Activity {
     public static int count=0;
     public static TextView textView;
     public static Button button;
+    public static TextView score;
+    public static int score1=0;
+    public static int score2=0;
+    public static Button exitButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +40,9 @@ public class MainActivity extends Activity {
         cells[6].setImageButton((ImageButton) findViewById(R.id.cell6));
         cells[7].setImageButton((ImageButton) findViewById(R.id.cell7));
         cells[8].setImageButton((ImageButton) findViewById(R.id.cell8));
-        Button button = (Button) findViewById(R.id.button);
+        button = (Button) findViewById(R.id.button);
+        score = (TextView) findViewById(R.id.idScore);
+        exitButton = (Button) findViewById(R.id.exitButton);
 
         View.OnClickListener onClickListener = new View.OnClickListener() {
             @Override
@@ -72,6 +78,10 @@ public class MainActivity extends Activity {
                     case R.id.button:
                         startNewGame();
                         break;
+                    case R.id.exitButton:
+                        finish();
+                        System.exit(0);
+                        break;
                 }
             }
         };
@@ -80,6 +90,7 @@ public class MainActivity extends Activity {
             cells[i].getImageButton().setOnClickListener(onClickListener);
         }
         button.setOnClickListener(onClickListener);
+        exitButton.setOnClickListener(onClickListener);
 
         changePlayer();
     }
@@ -129,7 +140,8 @@ public class MainActivity extends Activity {
         else if(cells[2].getValue()==cells[4].getValue() && cells[4].getValue()==cells[6].getValue() && cells[6].getValue()>0  ) {
            isTheEnd = true;
             highlightCells(cells[2],cells[4],cells[6]);
-        }  showGameOver();
+        }
+        showGameOver();
     }
 
     public void highlightCells(Cell cell1,Cell cell2, Cell cell3) {
@@ -137,11 +149,13 @@ public class MainActivity extends Activity {
             cell1.getImageButton().setImageResource(R.drawable.x2);
             cell2.getImageButton().setImageResource(R.drawable.x2);
             cell3.getImageButton().setImageResource(R.drawable.x2);
+            score1++;
         }
         else {
             cell1.getImageButton().setImageResource(R.drawable.o2);
             cell2.getImageButton().setImageResource(R.drawable.o2);
             cell3.getImageButton().setImageResource(R.drawable.o2);
+            score2++;
         }
 
     }
@@ -154,6 +168,8 @@ public class MainActivity extends Activity {
             textView.setText(result2);
         else
             changePlayer();
+       String result = "Score X:O - "+score1+":"+score2;
+       score.setText(result);
    }
 
     public void startNewGame(){
@@ -164,7 +180,8 @@ public class MainActivity extends Activity {
         player=1;
         isTheEnd=false;
         count=0;
-        textView.setText("New Game! Player 1");
+        String newText = "New Game! Player 1";
+        textView.setText(newText);
 
     }
 

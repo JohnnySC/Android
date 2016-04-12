@@ -18,6 +18,8 @@ public abstract class GameThread extends Thread {
     public static final int STATE_READY = 3;
     public static final int STATE_RUNNING = 4;
     public static final int STATE_WIN = 5;
+    public static final int STATE_MIDLOSE = 6;
+    public static final int STATE_CONTINUE = 7;
 
     protected int mMode = 1;
     private boolean mRun = false;
@@ -41,9 +43,14 @@ public abstract class GameThread extends Thread {
         mHandler = gameView.getmHandler();
         mContext = gameView.getContext();
 
-        mBackgroundImage = BitmapFactory.decodeResource
-                (gameView.getContext().getResources(),
-                        R.drawable.background);
+        if(rcanoedGame.optionInput>=0){
+            mBackgroundImage = BitmapFactory.decodeResource
+                    (gameView.getContext().getResources(),
+                            R.drawable.background);
+        }else
+            mBackgroundImage = BitmapFactory.decodeResource
+                    (gameView.getContext().getResources(),
+                            R.drawable.background_with_arrows);
     }
 
     public void cleanup() {
@@ -54,6 +61,7 @@ public abstract class GameThread extends Thread {
     }
 
     abstract public void setupBeginning();
+    abstract public void setupContinue();
 
     public void doStart() {
         synchronized(monitor) {
@@ -61,6 +69,15 @@ public abstract class GameThread extends Thread {
             mLastTime = System.currentTimeMillis() + 100;
             setState(STATE_RUNNING);
             setScore(0);
+        }
+    }
+
+    public void doContinue(){
+        synchronized (monitor){
+            setupContinue();
+            mLastTime = System.currentTimeMillis() + 100;
+            setState(STATE_RUNNING);
+
         }
     }
 
@@ -72,7 +89,7 @@ public abstract class GameThread extends Thread {
             try {
                 canvasRun = mSurfaceHolder.lockCanvas(null);
                 synchronized (monitor) {
-                    if (mMode == STATE_RUNNING)
+                    if (mMode == STATE_RUNNING || mMode==STATE_CONTINUE)
                         updatePhysics();
 
                     doDraw(canvasRun);
@@ -113,13 +130,18 @@ public abstract class GameThread extends Thread {
     public boolean onTouch(MotionEvent e) {
         if(e.getAction() != MotionEvent.ACTION_DOWN) return false;
 
-        if(mMode == STATE_READY || mMode == STATE_LOSE || mMode == STATE_WIN) {
+        if(mMode == STATE_READY  || mMode == STATE_LOSE /*|| mMode == STATE_WIN*/) {
             doStart();
             return true;
         }
 
         if(mMode == STATE_PAUSE) {
             unpause();
+            return true;
+        }
+
+        if(mMode==STATE_MIDLOSE || mMode == STATE_CONTINUE){
+            doContinue();
             return true;
         }
 
@@ -172,7 +194,7 @@ public abstract class GameThread extends Thread {
 
                 Resources res = mContext.getResources();
                 CharSequence str = "";
-                if (mMode == STATE_READY)
+                if (mMode == STATE_READY || mMode==STATE_CONTINUE)
                     str = res.getText(R.string.mode_ready);
                 else
                 if (mMode == STATE_PAUSE)
@@ -186,6 +208,10 @@ public abstract class GameThread extends Thread {
                 if (mMode == STATE_WIN) {
                     str = res.getText(R.string.mode_win);
                 }
+                else if (mMode==STATE_MIDLOSE){
+                    str = res.getText(R.string.mode_midlose);
+                }
+
 
                 if (message != null) {
                     str = message + "\n" + str;

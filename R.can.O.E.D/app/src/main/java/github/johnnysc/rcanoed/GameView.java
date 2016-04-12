@@ -1,7 +1,6 @@
 package github.johnnysc.rcanoed;
 
 import android.content.Context;
-import android.hardware.Sensor;
 import android.os.Handler;
 import android.os.Message;
 import android.util.AttributeSet;

@@ -26,7 +26,12 @@ public class rcanoedGame extends GameThread{
     private float[] mBrickY = new float[32];
 
     private float mMinDistanceBetweenBallAndPaddle = 0;
-    private int[] countSteel=new int[] {0,0,0,0,0,0,0,0};
+    private int[] countSteel;
+    public static int optionInput = 0;
+    public static int loseCounts;
+    public static int level=1;
+    public static int winCase = 0;
+
 
     public rcanoedGame(GameView gameView) {
         super(gameView);
@@ -61,28 +66,62 @@ public class rcanoedGame extends GameThread{
 
     @Override
     public void setupBeginning() {
+        loseCounts=0;
+        countSteel = level==2? new int[] {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0} : new int[] {0,0,0,0,0,0,0,0};
         mBallSpeedX = mCanvasWidth / 3;
         mBallSpeedY = mCanvasHeight / 3;
         mBallX = mCanvasWidth / 2;
         mBallY = mCanvasHeight / 2;
         mPaddleX = mCanvasWidth / 2;
 
-        for(int i=0;i<4;i++) {
-            mBrickX[8*i]=mCanvasWidth/2-7*mRedBrick.getWidth()/2;
-            mBrickY[8*i]= (5-i)*mRedBrick.getHeight();
-        }
-        for(int i=1;i<8;i++){
-            mBrickX[i] = mBrickX[i-1]+mRedBrick.getWidth();
-            mBrickY[i] = 5*mRedBrick.getHeight();
-            mBrickX[8+i] = mBrickX[i-1]+mRedBrick.getWidth();
-            mBrickY[8+i] =4*mRedBrick.getHeight();
-            mBrickX[16+i] = mBrickX[i-1]+mRedBrick.getWidth();
-            mBrickY[16+i] = 3*mRedBrick.getHeight();
-            mBrickX[24+i] = mBrickX[i-1]+mRedBrick.getWidth();
-            mBrickY[24+i] =  2*mRedBrick.getHeight();
-        }
+        putCells(level);
 
         mMinDistanceBetweenBallAndPaddle = (mPaddle.getWidth() / 2 + mBall.getWidth() / 2) * (mPaddle.getWidth() / 2 + mBall.getWidth() / 2);
+    }
+
+    public void putCells(int level){
+        if(level==2){
+            winCase=48;
+            for(int i=0;i<4;i++) {
+                mBrickX[8*i]=mCanvasWidth/2-7*mRedBrick.getWidth()/2;
+                mBrickY[8*i]= (5-i)*mRedBrick.getHeight();
+            }
+            for(int i=1;i<8;i++){
+                mBrickX[i] = mBrickX[i-1]+mRedBrick.getWidth();
+                mBrickY[i] = 5*mRedBrick.getHeight();
+                mBrickX[8+i] = mBrickX[i-1]+mRedBrick.getWidth();
+                mBrickY[8+i] =4*mRedBrick.getHeight();
+                mBrickX[16+i] = mBrickX[i-1]+mRedBrick.getWidth();
+                mBrickY[16+i] = 3*mRedBrick.getHeight();
+                mBrickX[24+i] = mBrickX[i-1]+mRedBrick.getWidth();
+                mBrickY[24+i] =  2*mRedBrick.getHeight();
+            }
+        }else if (level==1){
+            winCase=40;
+            for(int i=0;i<4;i++) {
+                mBrickX[8*i]=mCanvasWidth/2-7*mRedBrick.getWidth()/2;
+                mBrickY[8*i]= (5-i)*mRedBrick.getHeight();
+            }
+            for(int i=1;i<8;i++){
+                mBrickX[i] = mBrickX[i-1]+mRedBrick.getWidth();
+                mBrickY[i] = 5*mRedBrick.getHeight();
+                mBrickX[8+i] = mBrickX[i-1]+mRedBrick.getWidth();
+                mBrickY[8+i] =4*mRedBrick.getHeight();
+                mBrickX[16+i] = mBrickX[i-1]+mRedBrick.getWidth();
+                mBrickY[16+i] = 3*mRedBrick.getHeight();
+                mBrickX[24+i] = mBrickX[i-1]+mRedBrick.getWidth();
+                mBrickY[24+i] =  2*mRedBrick.getHeight();
+            }
+        }
+    }
+
+    @Override
+    public void setupContinue(){
+        mBallSpeedX = mCanvasWidth / 3;
+        mBallSpeedY = mCanvasHeight / 3;
+        mBallX = mCanvasWidth / 2;
+        mBallY = mCanvasHeight / 2;
+        mPaddleX = mCanvasWidth / 2;
     }
 
     @Override
@@ -92,24 +131,50 @@ public class rcanoedGame extends GameThread{
 
         canvas.drawBitmap(mBall, mBallX - mBall.getWidth() / 2, mBallY - mBall.getHeight() / 2, null);
         canvas.drawBitmap(mPaddle, mPaddleX - mPaddle.getWidth() / 2, mCanvasHeight-mPaddle.getHeight()/2-100, null);
-        for(int i = 0; i<8; i++)
+        drawLevel(level,canvas);
+
+    }
+
+    public void drawLevel(int level, Canvas canvas){
+        if(level==1) {
+            for (int i = 0; i < 8; i++)
             canvas.drawBitmap(mYellowBrick, mBrickX[i] - mYellowBrick.getWidth() / 2, mBrickY[i] - mYellowBrick.getHeight() / 2, null);
-        for(int i=8;i<16;i++)
-            canvas.drawBitmap(mBlueBrick, mBrickX[i] - mBlueBrick.getWidth() / 2, mBrickY[i] - mBlueBrick.getHeight() / 2, null);
-        for(int i=16;i<24;i++)
-            canvas.drawBitmap(mRedBrick, mBrickX[i] - mRedBrick.getWidth() / 2, mBrickY[i] - mRedBrick.getHeight() / 2, null);
-        for(int i=24;i<32;i++)
-            canvas.drawBitmap(mSteelBrick, mBrickX[i] - mSteelBrick.getWidth() / 2, mBrickY[i] - mSteelBrick.getHeight() / 2, null);
+            for (int i = 8; i < 16; i++)
+                canvas.drawBitmap(mBlueBrick, mBrickX[i] - mBlueBrick.getWidth() / 2, mBrickY[i] - mBlueBrick.getHeight() / 2, null);
+            for (int i = 16; i < 24; i++)
+                canvas.drawBitmap(mRedBrick, mBrickX[i] - mRedBrick.getWidth() / 2, mBrickY[i] - mRedBrick.getHeight() / 2, null);
+            for (int i = 24; i < 32; i++)
+                canvas.drawBitmap(mSteelBrick, mBrickX[i] - mSteelBrick.getWidth() / 2, mBrickY[i] - mSteelBrick.getHeight() / 2, null);
+        }else if(level==2){
+            for (int i = 0; i < 8; i++)
+                canvas.drawBitmap(mSteelBrick, mBrickX[i] - mSteelBrick.getWidth() / 2, mBrickY[i] - mSteelBrick.getHeight() / 2, null);
+            for (int i = 8; i < 16; i++)
+                canvas.drawBitmap(mBlueBrick, mBrickX[i] - mBlueBrick.getWidth() / 2, mBrickY[i] - mBlueBrick.getHeight() / 2, null);
+            for (int i = 16; i < 24; i++)
+                canvas.drawBitmap(mRedBrick, mBrickX[i] - mRedBrick.getWidth() / 2, mBrickY[i] - mRedBrick.getHeight() / 2, null);
+            for (int i = 24; i < 32; i++)
+                canvas.drawBitmap(mSteelBrick, mBrickX[i] - mSteelBrick.getWidth() / 2, mBrickY[i] - mSteelBrick.getHeight() / 2, null);
+        }
     }
 
     @Override
     protected void actionOnTouch(float x, float y) {
-        mPaddleX = x;
+        if(optionInput>=0)
+            mPaddleX=x;
+        else {
+            while (mPaddleX >= 0 && mPaddleX <= mCanvasWidth) {
+                if (x < mCanvasWidth / 2 && mPaddleX != 0)
+                    mPaddleX -= mCanvasWidth / 10;
+                else if (x > mCanvasWidth / 2 && mPaddleX != mCanvasWidth)
+                    mPaddleX += mCanvasWidth / 10;
+                break;
+            }
+        }
     }
 
     @Override
     protected void updateGame(float secondsElapsed) {
-        if(mBallSpeedY > 0)
+        if (mBallSpeedY > 0)
             updateBallCollision(mPaddleX, mCanvasHeight - 100);
 
         mBallX = mBallX + secondsElapsed * mBallSpeedX;
@@ -117,37 +182,91 @@ public class rcanoedGame extends GameThread{
 
         mPaddleX = mPaddleX + secondsElapsed * mPaddleSpeedX;
 
-        if((mBallX <= mBall.getWidth() / 2 && mBallSpeedX < 0) ||
-            (mBallX >= mCanvasWidth - mBall.getWidth() / 2 && mBallSpeedX > 0) )
-                        mBallSpeedX = -mBallSpeedX;
+        if ((mBallX <= mBall.getWidth() / 2 && mBallSpeedX < 0) ||
+                (mBallX >= mCanvasWidth - mBall.getWidth() / 2 && mBallSpeedX > 0))
+            mBallSpeedX = -mBallSpeedX;
 
-        for(int i = 0; i < 24; i++) {
-            if(updateBallCollision(mBrickX[i], mBrickY[i])){
-                mBrickY[i]=-300;
-                updateScore(1);
-                if(score==32)
-                    setState(GameThread.STATE_WIN);
+       preFinishGame();
+
+        if (mBallY <= mBall.getWidth() / 2 && mBallSpeedY < 0)
+            mBallSpeedY = -mBallSpeedY;
+
+        if(mBallY>=mCanvasHeight){
+            if(loseCounts==2){
+                setState(GameThread.STATE_LOSE);
+            }else {
+                loseCounts++;
+                setState(GameThread.STATE_MIDLOSE);
             }
         }
 
-        for(int i=24;i<32;i++){
-            if(updateBallCollision(mBrickX[i],mBrickY[i])){
-                countSteel[i-24]++;
-                if(countSteel[i-24]==2){
-                    mBrickY[i]=-300;
+    }
+
+    public void preFinishGame(){
+        if(level==1) {
+            for (int i = 0; i < 24; i++) {
+                if (updateBallCollision(mBrickX[i], mBrickY[i])) {
+                    mBrickY[i] = -300;
                     updateScore(1);
-                    if(score==32)
-                        setState(GameThread.STATE_WIN);
+                    finishGame();
+                }
+            }
+
+            for (int i = 24; i < 32; i++) {
+                if (updateBallCollision(mBrickX[i], mBrickY[i])) {
+                    countSteel[i - 24]++;
+                    if (countSteel[i - 24] == 2) {
+                        mBrickY[i] = -300;
+                        updateScore(2);
+                        finishGame();
+                    }
+                }
+            }
+        }else if(level==2){
+            for (int i = 8; i < 24; i++) {
+                if (updateBallCollision(mBrickX[i], mBrickY[i])) {
+                    mBrickY[i] = -300;
+                    updateScore(1);
+                    finishGame();
+                }
+            }
+
+            for (int i = 24; i < 32; i++) {
+                if (updateBallCollision(mBrickX[i], mBrickY[i])) {
+                    countSteel[i-16]++;
+                    if (countSteel[i - 16] == 2) {
+                        mBrickY[i] = -300;
+                        updateScore(2);
+                        finishGame();
+                    }
+                }
+            }
+            for (int i = 0; i < 8; i++) {
+                if (updateBallCollision(mBrickX[i], mBrickY[i])) {
+                    countSteel[i]++;
+                    if (countSteel[i] == 2) {
+                        mBrickY[i] = -300;
+                        updateScore(2);
+                        finishGame();
+                    }
                 }
             }
         }
-
-        if(mBallY <= mBall.getWidth() / 2 && mBallSpeedY < 0)
-            mBallSpeedY = -mBallSpeedY;
-
-        if(mBallY >= mCanvasHeight)
-            setState(GameThread.STATE_LOSE);
     }
+
+    public void finishGame(){
+        if (score == winCase) {
+            setState(GameThread.STATE_WIN);
+            level++;
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            setState(GameThread.STATE_READY);
+        }
+    }
+
 
     private boolean updateBallCollision(float x, float y) {
         float distanceBetweenBallAndPaddle = (x - mBallX) * (x - mBallX) + (y - mBallY) *(y - mBallY);

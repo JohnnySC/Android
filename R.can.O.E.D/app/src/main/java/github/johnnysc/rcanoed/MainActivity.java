@@ -25,7 +25,7 @@ public class MainActivity extends Activity {
 
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.game_layout);
 
         mGameView = (GameView)findViewById(R.id.gamearea);
         mGameView.setStatusView((TextView)findViewById(R.id.text));

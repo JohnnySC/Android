@@ -163,10 +163,10 @@ public class rcanoedGame extends GameThread{
             mPaddleX=x;
         else {
             while (mPaddleX >= 0 && mPaddleX <= mCanvasWidth) {
-                if (x < mCanvasWidth / 2 && mPaddleX != 0)
-                    mPaddleX -= mCanvasWidth / 10;
-                else if (x > mCanvasWidth / 2 && mPaddleX != mCanvasWidth)
-                    mPaddleX += mCanvasWidth / 10;
+                if (x < mCanvasWidth / 2 && mPaddleX >= mCanvasWidth/35)
+                    mPaddleX -= mCanvasWidth / 35;
+                else if (x > mCanvasWidth / 2 && mPaddleX <= mCanvasWidth-mCanvasWidth/35)
+                    mPaddleX += mCanvasWidth / 35;
                 break;
             }
         }

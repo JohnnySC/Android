@@ -128,28 +128,29 @@ public abstract class GameThread extends Thread {
     abstract protected void updateGame(float secondsElapsed);
 
     public boolean onTouch(MotionEvent e) {
-        if(e.getAction() != MotionEvent.ACTION_DOWN) return false;
+        if(e.getAction() == MotionEvent.ACTION_DOWN || e.getAction()==MotionEvent.ACTION_MOVE) {
 
-        if(mMode == STATE_READY  || mMode == STATE_LOSE /*|| mMode == STATE_WIN*/) {
-            doStart();
-            return true;
+
+            if (mMode == STATE_READY || mMode == STATE_LOSE /*|| mMode == STATE_WIN*/) {
+                doStart();
+                return true;
+            }
+
+            if (mMode == STATE_PAUSE) {
+                unpause();
+                return true;
+            }
+
+            if (mMode == STATE_MIDLOSE || mMode == STATE_CONTINUE) {
+                doContinue();
+                return true;
+            }
+
+            synchronized (monitor) {
+                this.actionOnTouch(e.getRawX(), e.getRawY());
+            }
         }
-
-        if(mMode == STATE_PAUSE) {
-            unpause();
-            return true;
-        }
-
-        if(mMode==STATE_MIDLOSE || mMode == STATE_CONTINUE){
-            doContinue();
-            return true;
-        }
-
-        synchronized (monitor) {
-            this.actionOnTouch(e.getRawX(), e.getRawY());
-        }
-
-        return false;
+            return false;
     }
 
     protected void actionOnTouch(float x, float y) {

@@ -126,13 +126,14 @@ public abstract class GameThread extends Thread {
                 return true;
             }
 
-            if(mMode == STATE_WIN)
-                return false;
-
             if (mMode == STATE_PAUSE) {
                 unpause();
                 return true;
             }
+		
+	    if(mMode == STATE_WIN)
+                return false;
+
 
            synchronized (monitor) {
                 this.actionOnTouch(e.getRawX(), e.getRawY());

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <TextView
+        android:textColor="@color/darkGray"
+        android:layout_gravity="center_horizontal"
+        android:textSize="25sp"
+        android:text="@string/favoritepoems"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+<ListView
+    android:id="@+id/favoritesList"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_below="@+id/textView"
+    android:paddingBottom="50sp"
+    android:layout_alignParentBottom="true">
+
+</ListView>
+
+    <Button
+        android:textColor="@color/darkGray"
+        android:onClick="clearFavorites"
+        android:textSize="15sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/clear_favorites"
+        android:id="@+id/clearFavorites"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:visibility="gone"
+        android:textColor="@color/darkGray"
+        android:onClick="cancelClearing"
+        android:textSize="15sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cancel"
+        android:id="@+id/cancelButton"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/sureButton"
+        android:layout_toEndOf="@+id/sureButton" />
+
+    <Button
+        android:visibility="gone"
+        android:textColor="@color/darkGray"
+        android:onClick="sureClearing"
+        android:textSize="15sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sure"
+        android:id="@+id/sureButton"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+</RelativeLayout>

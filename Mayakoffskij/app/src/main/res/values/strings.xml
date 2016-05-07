@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Маяковский</string>
+    <string name="imageofmayakoffskij">Маяковский</string>
+    <string name="nextPoem">Следующий</string>
+    <string name="previousPoem">Предыдущий</string>
+    <string name="search">Поиск</string>
+    <string name="input_word">Введите слово поиска</string>
+    <string name="add_to_favorites">Добавить в избранное</string>
+    <string name="favoritepoems">Избранное</string>
+    <string name="favs">Избранное</string>
+    <string name="uploadFavs">Загрузить избранные</string>
+    <string name="clear_favorites">Очистить избранные</string>
+    <string name="cancel">Отмена</string>
+    <string name="sure">Очистить</string>
+    <string name="remove_from_favs">Убрать из избранных</string>
+    <string name="matches">Совпадения</string>
+    <string name="all_poems_count">Стихи:</string>
+    <string name="fontsizeminus">Шрифт -</string>
+    <string name="fontsizeplus">Шрифт +</string>
+    <string name="fontexample">Аа</string>
+</resources>

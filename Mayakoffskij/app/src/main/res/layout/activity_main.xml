@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:background="@drawable/background"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="github.johnnysc.mayakoffskij.MainActivity">
+<ListView
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:id="@+id/poems_list"
+    android:layout_below="@+id/searchButton"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true"
+    android:layout_above="@+id/gotoFavorites">
+
+</ListView>
+
+    <Button
+        android:textColor="@color/darkGray"
+        android:textSize="15sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/search"
+        android:id="@+id/searchButton"
+        android:layout_alignBottom="@+id/searchText"
+        android:layout_alignRight="@+id/gotoFavorites"
+        android:layout_alignEnd="@+id/gotoFavorites" />
+
+    <EditText
+        android:textColor="@color/darkGray"
+        android:textSize="15sp"
+        android:onClick="clearEditText"
+        android:text="@string/input_word"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/searchText"
+        android:layout_below="@+id/allPoemsCount"
+        android:layout_toLeftOf="@+id/searchButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:inputType="text" />
+
+    <Button
+        android:textColor="@color/darkGray"
+        android:textSize="15sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/favs"
+        android:id="@+id/gotoFavorites"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+
+    <TextView
+        android:textColor="@color/darkGray"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/all_poems_count"
+        android:id="@+id/allPoemsCount"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:textColor="@color/darkGray"
+        android:textSize="15sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/fontsizeminus"
+        android:id="@+id/fontsizeminus"
+        android:layout_below="@+id/poems_list"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:textColor="@color/darkGray"
+        android:textSize="15sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/fontsizeplus"
+        android:id="@+id/fontsizeplus"
+        android:layout_below="@+id/poems_list"
+        android:layout_toRightOf="@+id/fontsizeminus"
+        android:layout_toEndOf="@+id/fontsizeminus" />
+
+    <TextView
+        android:textColor="@color/darkGray"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/fontexample"
+        android:id="@+id/fontexample"
+        android:layout_alignBaseline="@+id/fontsizeplus"
+        android:layout_alignBottom="@+id/fontsizeplus"
+        android:layout_toRightOf="@+id/fontsizeplus"
+        android:layout_toEndOf="@+id/fontsizeplus" />
+
+</RelativeLayout>

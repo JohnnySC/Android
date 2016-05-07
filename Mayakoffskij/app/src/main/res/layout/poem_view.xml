@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    android:id="@+id/myScrollView"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@drawable/background">
+
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textColor="@color/darkGray"
+            android:id="@+id/aPoemTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    <Button
+        android:textColor="@color/darkGray"
+        android:textSize="15sp"
+        android:id="@+id/nextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/nextPoem"
+        android:layout_below="@+id/aPoemTextView"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+        <Button
+            android:textColor="@color/darkGray"
+            android:textSize="15sp"
+            android:id="@+id/previousButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/previousPoem"
+            android:layout_alignTop="@+id/add_to_favorites"
+            android:layout_toRightOf="@+id/remove_from_favorites"
+            android:layout_toEndOf="@+id/remove_from_favorites" />
+
+    <Button
+        android:textColor="@color/darkGray"
+        android:textSize="15sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_to_favorites"
+        android:id="@+id/add_to_favorites"
+        android:layout_below="@+id/nextButton"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:visibility="gone"
+        android:textColor="@color/darkGray"
+        android:textSize="15sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/remove_from_favs"
+        android:id="@+id/remove_from_favorites"
+        android:layout_below="@+id/add_to_favorites"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+</RelativeLayout>
+    </ScrollView>

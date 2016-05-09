@@ -35,7 +35,7 @@ public class SearchResultsList extends Activity {
         searchListView.setAdapter(foundPoemsAdapter);
 
         for(int i=0;i<allPoems.getSize();i++){
-            if(Poems.poems.get(i).contains(searchText)){
+            if(Poems.poems.get(i).toLowerCase().contains(searchText.toLowerCase())){
                 FoundPoemsAdapter.addFoundPoem(PoemAdapter.poems.get(i));
                 indexes.add(i);
             }

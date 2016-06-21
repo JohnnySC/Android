@@ -35,8 +35,10 @@ public class MainActivity extends Activity{
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                (new Thread(new HtmlRunnable())).start();
+                Thread thread = new Thread(new HtmlRunnable());
+                thread.start();
                 textView.setText(sb.toString());
+                sb.setLength(0);
             }
         });
     }
@@ -45,8 +47,8 @@ public class HtmlRunnable implements Runnable {
     public void run(){
         try {
             URL pageURL = new URL(editText.getText().toString());
-            URLConnection  uc = pageURL.openConnection();
-            BufferedReader   br = new BufferedReader(
+            URLConnection uc = pageURL.openConnection();
+            BufferedReader br = new BufferedReader(
                                   new InputStreamReader(
                                        uc.getInputStream(), "UTF-8"));
             String inputLine;

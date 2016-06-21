@@ -10,3 +10,7 @@ R.can.O.E.D is simple arcanoid game with 2 levels.
 
 
 TicTacToe - is the simple tictactoe game for 2 players
+
+WebPage - is the most simple webPage viewer, the only thing you need is to input url address.
+
+YotaTestApp - is test application for YotaDevices. It gets url address and shows html code of it.

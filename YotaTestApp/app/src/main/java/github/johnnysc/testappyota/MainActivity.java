@@ -37,6 +37,11 @@ public class MainActivity extends Activity{
             public void onClick(View v) {
                 Thread thread = new Thread(new HtmlRunnable());
                 thread.start();
+                try {
+                    thread.join();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 textView.setText(sb.toString());
                 sb.setLength(0);
             }

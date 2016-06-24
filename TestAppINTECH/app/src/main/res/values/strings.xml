@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">TestAppINTECH</string>
+    <string name="album_cover">album cover</string>
+    <string name="imageofalbum">imageOfAlbum</string>
+</resources>

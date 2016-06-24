@@ -14,3 +14,5 @@ TicTacToe - is the simple tictactoe game for 2 players
 WebPage - is the most simple webPage viewer, the only thing you need is to input url address.
 
 YotaTestApp - is test application for YotaDevices. It gets url address and shows html code of it.
+
+TestAppIntech - is another test application for Intech. It uses API to get mediacontent and shows it as list or grid. For more information read about it in my blog. http://johnnyblog.ru/archives/94

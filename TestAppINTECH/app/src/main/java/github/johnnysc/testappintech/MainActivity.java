@@ -1,11 +1,13 @@
 package github.johnnysc.testappintech;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Display;
 import android.view.View;
 
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,57 +24,47 @@ import java.util.ArrayList;
  * Created by Hovhannes Asatryan on 22.06.16.
  */
 
-public class MainActivity extends AppCompatActivity {
-    public static EditText editText;
-    public static Button button;
-    public static String url = "https://itunes.apple.com/search?term=";
+public class MainActivity extends Activity {
+    EditText editText;
+    Button button;
+    String url = "https://itunes.apple.com/search?term=";
     public static String text;
     public static ArrayList<Song> songArrayList;
     ListView listView;
-    public static SongAdapter songAdapter;
+    SongAdapter songAdapter;
     public static int positionOfItem;
-    public static View myView;
-    public static Button buttonGrid;
+    Button buttonGrid;
     GridView gridView;
     int numOfColumns;
     int available;
+    int currentOrientation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         editText = (EditText)findViewById(R.id.editText);
         button = (Button)findViewById(R.id.button);
         buttonGrid = (Button)findViewById(R.id.buttonGrid);
-
-        positionOfItem = 0;
-
         listView = (ListView)findViewById(R.id.listView);
         gridView = (GridView)findViewById(R.id.gridView);
-        numOfColumns = 2;
-        available = 0;
 
+        positionOfItem = 0;
+        currentOrientation = getScreenOrientation();
+        numOfColumns =(currentOrientation==1)? 2:3;
+        available = 0;
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(editText.getText().toString().length()>4) {
+                if(editText.getText().length()>4) {
                     Thread thread = new Thread(new HtmlRunnable());
-                    thread.start();
-                    try {
-                        thread.join();
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+                    runTheThread(thread);
                     songArrayList = new ArrayList<>();
                     Thread thread2 = new Thread(new SongRunnable());
-                    thread2.start();
-                    try {
-                        thread2.join();
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+                    runTheThread(thread2);
                     songAdapter = new SongAdapter();
                     listView.setAdapter(songAdapter);
                     listView.setVisibility(View.VISIBLE);
@@ -82,12 +74,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 positionOfItem = position;
-                myView = view;
                 Intent intent = new Intent(MainActivity.this, PlayerActivity.class);
                 startActivityForResult(intent, 0);
             }
@@ -111,7 +101,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 positionOfItem = position;
-                myView = view;
                 Intent intent = new Intent(MainActivity.this, PlayerActivity.class);
                 startActivityForResult(intent, 0);
             }
@@ -125,27 +114,18 @@ public class MainActivity extends AppCompatActivity {
 
         if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
                 numOfColumns = 3;
-           adjustGridView();
+                adjustGridView();
         } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
                 numOfColumns = 2;
-             adjustGridView();
+                adjustGridView();
         }
     }
 
     private void adjustGridView() {
         gridView.setNumColumns(numOfColumns);
     }
-    public class SongRunnable implements Runnable{
-        public void run(){
-            try{
-                fillSongArrayList();
-            }catch (Exception e){
-                e.printStackTrace();
-            }
-        }
-    }
 
-    public class HtmlRunnable implements Runnable {
+    class HtmlRunnable implements Runnable {
         public void run(){
             try {
                 StringBuilder sb = new StringBuilder();
@@ -165,6 +145,16 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    class SongRunnable implements Runnable{
+        public void run(){
+            try{
+                fillSongArrayList();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+    }
+
     private void fillSongArrayList() {
         ArrayList<String> artistName = GetContent.getArrayOfString("artistName");
         ArrayList<String> trackName = GetContent.getArrayOfString("trackName");
@@ -176,5 +166,25 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public static void runTheThread(Thread thread){
+        thread.start();
+        try {
+            thread.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    int getScreenOrientation()
+    {
+        Display getOrient = getWindowManager().getDefaultDisplay();
+        int orientation;
+            if(getOrient.getWidth() < getOrient.getHeight()){
+                orientation = Configuration.ORIENTATION_PORTRAIT;
+            }else {
+                orientation = Configuration.ORIENTATION_LANDSCAPE;
+            }
+        return orientation;
+    }
 
 }

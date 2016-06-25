@@ -16,12 +16,6 @@ public class Song {
         this.songURL = songURL;
     }
 
-    public Song(String artistName, String trackName, String coverURL) {
-        this.artistName = artistName;
-        this.trackName = trackName;
-        this.coverURL = coverURL;
-    }
-
     public String getArtistName() {
         return artistName;
     }

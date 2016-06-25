@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/editText"
-        android:text="keyword"
+        android:text="@string/keyword"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -22,13 +22,15 @@
         android:layout_toLeftOf="@+id/buttonGrid" />
 
     <Button
-        android:layout_width="50sp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Go"
+        android:text="@string/go"
         android:id="@+id/button"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_alignBottom="@+id/editText"
+        android:layout_above="@+id/listView" />
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -39,11 +41,11 @@
     </ListView>
 
     <Button
-        style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="grid"
+        android:text="@string/grid"
         android:id="@+id/buttonGrid"
+        android:layout_alignParentTop="true"
         android:layout_alignBottom="@+id/editText"
         android:layout_toLeftOf="@+id/button"
         android:layout_toStartOf="@+id/button" />
@@ -51,6 +53,7 @@
     <GridView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:verticalSpacing="20dp"
         android:id="@+id/gridView"
         android:layout_below="@+id/editText"
         android:layout_alignParentLeft="true"

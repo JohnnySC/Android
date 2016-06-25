@@ -30,22 +30,22 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="PLAY"
+        android:text="@string/play"
         android:id="@+id/playButton"
         android:layout_gravity="right"
-        android:layout_marginTop="77dp"
-        android:layout_below="@+id/playerSongTextView"
-        android:layout_centerHorizontal="true" />
+        android:layout_marginTop="25dp"
+        android:layout_below="@+id/playerArtistNameView"
+        android:layout_alignLeft="@+id/pauseButton"
+        android:layout_alignStart="@+id/pauseButton" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Pause"
+        android:text="@string/pause"
         android:id="@+id/pauseButton"
         android:layout_gravity="right"
-        android:layout_above="@+id/seekBar"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_below="@+id/seekBar"
+        android:layout_centerHorizontal="true" />
 
     <SeekBar
         android:layout_width="wrap_content"

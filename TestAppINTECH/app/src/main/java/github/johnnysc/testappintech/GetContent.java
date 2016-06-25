@@ -3,72 +3,62 @@ package github.johnnysc.testappintech;
 import java.util.ArrayList;
 
 /**
- * Created by johnny on 23.06.16.
+ * Created by Hovhannes Asatryan on 23.06.16.
  */
 public class GetContent {
     public static ArrayList<String> getArrayOfString(String keyWord){
-        ArrayList<String> artistName = new ArrayList<>();
-        ArrayList<String> trackName = new ArrayList<>();
-        ArrayList<String> coverURL = new ArrayList<>();
-        ArrayList<String> songURL= new ArrayList<>();
-        ArrayList<String> result;
-        ArrayList<Integer> first;
-        ArrayList<Integer> second;
-        String wholeText = MainActivity.text;
+        ArrayList<String> result = new ArrayList<>();
+        String[] values = {"artistName","trackName","artworkUrl100","previewUrl"};
 
-        if(keyWord=="artistName"){
-            first = getIndexes("artistName");
-            second = getIndexes("collectionName");
-            for(int i=0;i<first.size()-1;i++){
-                artistName.add(wholeText.substring(first.get(i)+13,second.get(i)-4));
-            }
-            result = artistName;
-        } else if(keyWord=="trackName"){
-            first = getIndexes("trackName");
-            second = getIndexes("collectionCensoredName");
-            for(int i=0;i<first.size()-1;i++){
-                trackName.add(wholeText.substring(first.get(i)+12,second.get(i)-4));
-            }
-            result = trackName;
-        }else if(keyWord=="coverURL"){
-            first = getIndexes("artworkUrl100");
-            second = getIndexes("collectionPrice");
-            for(int i=0;i<first.size()-1;i++){
-                coverURL.add(wholeText.substring(first.get(i)+16,second.get(i)-4));
-            }
-            result = coverURL;
-        }else{
-            first = getIndexes("previewUrl");
-            second = getIndexes("artworkUrl30");
-            for(int i=0;i<first.size()-1;i++){
-                songURL.add(wholeText.substring(first.get(i)+13,second.get(i)-4));
-            }
-            result = songURL;
+        switch (keyWord){
+            case "artistName":
+                result = getValues(values[0]);
+                break;
+            case "trackName":
+                result = getValues(values[1]);
+                break;
+            case "coverURL":
+                result = getValues(values[2]);
+                break;
+            case "songURL":
+                result = getValues(values[3]);
+                break;
         }
 
         return result;
     }
 
-    public static ArrayList<Integer> getIndexes(String word){
+    public static ArrayList<String> getValues(String keyword){
+        ArrayList<String> arrayList = new ArrayList<>();
+        ArrayList<Integer> first;
+        String wholeText = MainActivity.text;
+
+        first = getIndexes(wholeText,keyword);
+        for(int i=0;i<first.size();i++){
+            String current = wholeText.substring(first.get(i),first.get(i)+300);
+            ArrayList<Integer> commas = getIndexes(current,",");
+            arrayList.add(current.substring(keyword.length()+3,commas.get(0)-1));
+        }
+        return arrayList;
+
+    }
+
+    public static ArrayList<Integer> getIndexes(String wholeText, String word){
         ArrayList<Integer> indexes = new ArrayList<>();
-        try {
-            String wholeText = MainActivity.text;
-            for (int i = 0; i < wholeText.length() - word.length(); i++) {
-                int k = 0;
-                int b = 0;
-                while (k < word.length() && b==0) {
-                    if (word.charAt(k) == wholeText.charAt(i + k))
-                        k++;
-                    else
-                        b++;
-                }
-                if (k == word.length())
-                    indexes.add(i);
+
+        for(int i=0;i<wholeText.length()-word.length();i++)
+        {
+            int k=0;
+            boolean b=true;
+            while(k<word.length() && b){
+                if(word.charAt(k)==wholeText.charAt(i+k))
+                    k++;
+                else
+                    b=false;
             }
-        }catch(Exception e){
-            e.printStackTrace();
+            if(k==word.length())
+                indexes.add(i);
         }
         return indexes;
     }
-
 }

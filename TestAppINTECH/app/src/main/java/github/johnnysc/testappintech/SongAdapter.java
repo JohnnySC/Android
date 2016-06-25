@@ -21,6 +21,8 @@ import java.util.ArrayList;
  */
 public class SongAdapter extends BaseAdapter {
     public static ArrayList<Song> allSongs = null;
+    Song mySong;
+    Bitmap myBitmap;
 
     public SongAdapter() {
         allSongs = new ArrayList<>();
@@ -45,8 +47,6 @@ public class SongAdapter extends BaseAdapter {
         return position;
     }
 
-    public static Song mySong;
-    public static Bitmap myBitmap;
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if(convertView == null){
@@ -55,15 +55,10 @@ public class SongAdapter extends BaseAdapter {
         }
         Song song = allSongs.get(position);
 
-       ImageView imageView = (ImageView)convertView.findViewById(R.id.albumCover_view);
+        ImageView imageView = (ImageView)convertView.findViewById(R.id.albumCover_view);
         mySong = song;
-        Thread  thread = new Thread(new bitmapRunnable());
-        thread.start();
-        try {
-            thread.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        Thread thread = new Thread(new bitmapRunnable());
+        MainActivity.runTheThread(thread);
         imageView.setImageBitmap(myBitmap);
 
         TextView songName = (TextView)convertView.findViewById(R.id.songName_view);
@@ -74,7 +69,6 @@ public class SongAdapter extends BaseAdapter {
 
         return convertView;
     }
-
 
     public static Bitmap getImageBitmap(String url) {
         Bitmap bitmap = null;

@@ -2,4 +2,9 @@
     <string name="app_name">TestAppINTECH</string>
     <string name="album_cover">album cover</string>
     <string name="imageofalbum">imageOfAlbum</string>
+    <string name="grid">grid</string>
+    <string name="go">Go</string>
+    <string name="keyword">keyword</string>
+    <string name="play">PLAY</string>
+    <string name="pause">Pause</string>
 </resources>

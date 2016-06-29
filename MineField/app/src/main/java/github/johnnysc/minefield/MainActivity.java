@@ -35,7 +35,7 @@ public class MainActivity extends Activity {
     }
 
     private void startGame(GameView gView, GameThread gThread, Bundle savedInstanceState) {
-        mGameThread = new mineField(mGameView);
+        mGameThread = new MineField(mGameView);
         mGameView.setThread(mGameThread);
         mGameThread.setState(GameThread.STATE_READY);
     }

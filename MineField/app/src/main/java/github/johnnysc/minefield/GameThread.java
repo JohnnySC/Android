@@ -41,20 +41,20 @@ public abstract class GameThread extends Thread {
         mHandler = gameView.getmHandler();
         mContext = gameView.getContext();
 
-            mBackgroundImage = BitmapFactory.decodeResource
+        mBackgroundImage = BitmapFactory.decodeResource
                     (gameView.getContext().getResources(),
                             R.drawable.background);
-        mineField.character = BitmapFactory.decodeResource
+        MineField.character = BitmapFactory.decodeResource
                 (gameView.getContext().getResources(),
                         R.drawable.character);
-        mineField.cellz = BitmapFactory.decodeResource
+        MineField.cellz = BitmapFactory.decodeResource
                 (gameView.getContext().getResources(),
                         R.drawable.cells);
-        mineField.death = BitmapFactory.decodeResource
+        MineField.death = BitmapFactory.decodeResource
                 (gameView.getContext().getResources(),
                         R.drawable.death);
 
-        mineField.aim = BitmapFactory.decodeResource
+        MineField.aim = BitmapFactory.decodeResource
                 (gameView.getContext().getResources(),
                         R.drawable.aim);
 
@@ -105,10 +105,10 @@ public abstract class GameThread extends Thread {
             mCanvasWidth = width;
             mCanvasHeight = height;
             mBackgroundImage = Bitmap.createScaledBitmap(mBackgroundImage, width, height, true);
-            mineField.cellz = Bitmap.createScaledBitmap(mineField.cellz,width,width,true);
-            mineField.character = Bitmap.createScaledBitmap(mineField.character,mCanvasWidth/6,mCanvasWidth/6,true);
-            mineField.death = Bitmap.createScaledBitmap(mineField.death,mCanvasWidth/6,mCanvasWidth/6,true);
-            mineField.aim = Bitmap.createScaledBitmap(mineField.aim,mCanvasWidth/6,mCanvasWidth/6,true);
+            MineField.cellz = Bitmap.createScaledBitmap(MineField.cellz,width,width,true);
+            MineField.character = Bitmap.createScaledBitmap(MineField.character,mCanvasWidth/6,mCanvasWidth/6,true);
+            MineField.death = Bitmap.createScaledBitmap(MineField.death,mCanvasWidth/6,mCanvasWidth/6,true);
+            MineField.aim = Bitmap.createScaledBitmap(MineField.aim,mCanvasWidth/6,mCanvasWidth/6,true);
         }
     }
 

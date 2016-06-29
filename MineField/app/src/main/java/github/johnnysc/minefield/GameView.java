@@ -113,7 +113,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                 thread.start();
             else {
                 if(thread.getState() == Thread.State.TERMINATED){
-                    thread = new mineField(this);
+                    thread = new MineField(this);
                     thread.setRunning(true);
                     thread.start();
                 }

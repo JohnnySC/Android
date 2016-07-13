@@ -18,4 +18,4 @@ TICTACTOE - is the simple tictactoe game for 2 players
 
 WEBPAGE - is the most simple webPage viewer, the only thing you need is to input url address.
 
-SLIDEMENU - is an application, that uses slide menu, the menu that appears if user slides at the left side, then it is possible to opt one of many choices.
+SLIDEMENU - is an application, that uses slide menu, the menu that appears if user slides at the left side, then it is possible to opt one of many choices. For more info check my blog http://johnnyblog.ru/archives/127

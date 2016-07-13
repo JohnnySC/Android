@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">PrivateContacts</string>
+    <string name="password">Пароль</string>
+    <string name="reenterpassword">Повторите пароль</string>
+    <string name="goforward">Дальше</string>
+    <string name="enter">Вход</string>
+    <string name="hint">Подсказка</string>
+    <string name="title_contact_list">Contacts</string>
+    <string name="title_contact_detail">Contact Detail</string>
+    <string name="name">ФИО</string>
+    <string name="number">Номер</string>
+    <string name="add">Добавить</string>
+    <string name="enter_message">Введите текст сообщения</string>
+</resources>

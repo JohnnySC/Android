@@ -14,6 +14,10 @@ import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ListView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
@@ -147,23 +151,27 @@ public class MainActivity extends Activity {
 
     class SongRunnable implements Runnable{
         public void run(){
-            try{
-                fillSongArrayList();
-            }catch (Exception e){
-                e.printStackTrace();
-            }
+            fillSongArrayList();
         }
     }
 
     private void fillSongArrayList() {
-        ArrayList<String> artistName = GetContent.getArrayOfString("artistName");
-        ArrayList<String> trackName = GetContent.getArrayOfString("trackName");
-        ArrayList<String> coverURL = GetContent.getArrayOfString("coverURL");
-        ArrayList<String> songURL = GetContent.getArrayOfString("songURL");
+        try {
+            JSONObject jsonRootObject = new JSONObject(text);
+            JSONArray jsonArray = jsonRootObject.optJSONArray("results");
 
-        for(int i=0;i<artistName.size();i++) {
-            songArrayList.add(new Song(artistName.get(i), trackName.get(i), coverURL.get(i), songURL.get(i)));
-        }
+            for(int i=0; i < jsonArray.length(); i++){
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+
+                String artistName = jsonObject.optString("artistName");
+                String trackName = jsonObject.optString("trackName");
+                String coverURL = jsonObject.optString("artworkUrl100");
+                String songURL = jsonObject.optString("previewUrl");
+
+                songArrayList.add(new Song(artistName,trackName,coverURL,songURL));
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();}
     }
 
     public static void runTheThread(Thread thread){

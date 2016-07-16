@@ -5,6 +5,7 @@ PRIVATECONTACTS is the application to save your private contacts. At first you a
 For more information read in my blog http://johnnyblog.ru/archives/133
 
 WEATHERAPP is an application where user is supposed to input a city name to get the current weather. There is info about max and min temperature of the day, current temperature, pressure, humidity and wind speed. Also it connetcts to Google maps and shows the city on the map. Application needn't any GPS, everything is on Internet connection. 
+Fore more information visit my blog http://johnnyblog.ru/archives/155
 
 TESTAPPINTECH - is another test application for Intech. It uses API to get mediacontent and shows it as list or grid. For more information read about it in my blog. http://johnnyblog.ru/archives/94
 

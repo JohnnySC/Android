@@ -4,6 +4,8 @@ Here are applications/games written in Java for Android devices
 PRIVATECONTACTS is the application to save your private contacts. At first you are supposed to create a password and a hint in case if you forget it. Then you can create your own contacts simply entering contact name and number. Any time you can remove the contact. All the contacts sort automatically in alphabetical order and save to internal storage. Then you can call and send message just via in-built message sender. 
 For more information read in my blog http://johnnyblog.ru/archives/133
 
+WEATHERAPP is an application where user is supposed to input a city name to get the current weather. There is info about max and min temperature of the day, current temperature, pressure, humidity and wind speed. Also it connetcts to Google maps and shows the city on the map. Application needn't any GPS, everything is on Internet connection. 
+
 TESTAPPINTECH - is another test application for Intech. It uses API to get mediacontent and shows it as list or grid. For more information read about it in my blog. http://johnnyblog.ru/archives/94
 
 YOTATESTAPP - is test application for YotaDevices. It gets url address and shows html code of it. For more information read in my blog http://johnnyblog.ru/archives/85

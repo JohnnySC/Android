@@ -50,34 +50,32 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 sb = new StringBuilder();
-                if(editText.getText().toString().length()>0)
-                getURL(editText.getText().toString());
-                method();
+                String userInput = editText.getText().toString();
+                if(userInput.length()>0)
+                getURL(userInput);
+                getWeather();
                 mapWebView.loadUrl("https://www.google.ru/maps/place//@"+latitude + "," + longitude+",12z/data=!4m5!3m4!1s0x0:0x0!8m2!3d55.744063!4d37.614619");
             }
         });
     }
 
-    private void method(){
-        Thread thread = new Thread(new HtmlRunnable());
+    private void getWeather(){
+        runThread(new Thread(new HtmlRunnable()));
+        text = "";
+        text = sb.toString();
+        getData();
+        runThread(new Thread(new DrawableRunnable()));
+        iconImageView.setImageDrawable(drawableImage);
+        txtView.setText(text);
+    }
+
+    private void runThread(Thread thread){
         thread.start();
         try {
             thread.join();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        text = "";
-        text = sb.toString();
-        getData();
-        Thread thread2 = new Thread(new DrawableRunnable());
-        thread2.start();
-        try {
-            thread2.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        iconImageView.setImageDrawable(drawableImage);
-        txtView.setText(text);
     }
 
     private void getURL(String city){

@@ -59,6 +59,7 @@ public class ShopAdapter extends BaseAdapter {
     public void add(ShopItem item) {
         if(!item.getAddress().equals("") && item.getDistance()>0) {
             shopItemArrayList.add(item);
+	    if(shopItemArrayList.size()>300)
             sortItems();
             notifyDataSetChanged();
         }

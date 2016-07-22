@@ -1,5 +1,7 @@
 package github.johnnysc.shopslist;
 
+import android.location.Location;
+
 import com.google.gson.annotations.SerializedName;
 
 /**
@@ -14,6 +16,12 @@ public class ShopItem {
 
     @SerializedName("phone")
     private String phone;
+
+    @SerializedName("longtitude")
+    private String longitude;
+
+    @SerializedName("latitude")
+    private String latitude;
 
     public ShopItem(String address, String town, String phone) {
         this.address = address;
@@ -31,5 +39,31 @@ public class ShopItem {
 
     public String getPhone() {
         return phone;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public String getLatitude() {
+        return latitude;
+    }
+
+    public double getDistance(){
+        if(!this.longitude.equals("") && !this.latitude.equals("")) {
+            double longitude = Double.parseDouble(this.longitude);
+            double latitude = Double.parseDouble(this.latitude);
+            double distance = 0;
+            Location locationA = new Location("Moscow");
+            locationA.setLatitude(55.751244);
+            locationA.setLongitude(37.618423);
+            Location locationB = new Location("B");
+            locationB.setLatitude(latitude);
+            locationB.setLongitude(longitude);
+            distance = locationA.distanceTo(locationB);
+            return distance;
+        }
+        else
+            return -1;
     }
 }

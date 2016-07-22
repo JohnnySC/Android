@@ -4,6 +4,10 @@ Here are applications/games written in Java for Android devices
 PRIVATECONTACTS is the application to save your private contacts. At first you are supposed to create a password and a hint in case if you forget it. Then you can create your own contacts simply entering contact name and number. Any time you can remove the contact. All the contacts sort automatically in alphabetical order and save to internal storage. Then you can call and send message just via in-built message sender. 
 For more information read in my blog http://johnnyblog.ru/archives/133
 
+SHOPSLIST is the application that gets json file and parse to Shop items, then shows in list view, also it sorts shops locations by distance in ascending order from Moscow.
+
+SHOPSLISTRETROFIT - is a new version of SHOPSLIST, besides it doesn't sort and uses RETROFIT 2 library
+
 WEATHERAPP is an application where user is supposed to input a city name to get the current weather. There is info about max and min temperature of the day, current temperature, pressure, humidity and wind speed. Also it connetcts to Google maps and shows the city on the map. Application needn't any GPS, everything is on Internet connection. 
 Fore more information visit my blog http://johnnyblog.ru/archives/155
 

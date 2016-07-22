@@ -7,6 +7,8 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 /**
  * Created by Hovhannes Asatryan on 22.07.16.
@@ -55,9 +57,19 @@ public class ShopAdapter extends BaseAdapter {
     }
 
     public void add(ShopItem item) {
-        if(!item.getAddress().equals("")) {
+        if(!item.getAddress().equals("") && item.getDistance()>0) {
             shopItemArrayList.add(item);
+            sortItems();
             notifyDataSetChanged();
         }
+    }
+
+    private void sortItems() {
+        Collections.sort(shopItemArrayList, new Comparator<ShopItem>() {
+            @Override
+            public int compare(ShopItem lhs, ShopItem rhs) {
+                return Double.compare(lhs.getDistance(),rhs.getDistance());
+            }
+        });
     }
 }

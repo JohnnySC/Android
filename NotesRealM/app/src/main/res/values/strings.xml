@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">NotesRealM</string>
+    <string name="create_note">Create Note</string>
+    <string name="body">body</string>
+    <string name="head">Head</string>
+    <string name="create_note_button">Create Note</string>
+    <string name="create_head">Head</string>
+</resources>

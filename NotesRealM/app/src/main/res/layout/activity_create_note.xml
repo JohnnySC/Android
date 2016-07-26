@@ -18,7 +18,7 @@
         android:layout_marginTop="71dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:text="@string/create_head"
+        android:hint="@string/heading_minimum_5_chars"
         android:inputType="text" />
 <ScrollView
     android:layout_width="match_parent"
@@ -29,6 +29,7 @@
         android:layout_height="wrap_content"
         android:inputType="textMultiLine"
         android:ems="10"
+        android:hint="@string/body"
         android:id="@+id/etBody" />
 </ScrollView>
 

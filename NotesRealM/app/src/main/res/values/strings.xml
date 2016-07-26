@@ -5,4 +5,5 @@
     <string name="head">Head</string>
     <string name="create_note_button">Create Note</string>
     <string name="create_head">Head</string>
+    <string name="heading_minimum_5_chars">heading - minimum 5 chars</string>
 </resources>

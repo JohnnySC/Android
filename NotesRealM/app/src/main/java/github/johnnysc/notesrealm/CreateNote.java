@@ -7,9 +7,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.jakewharton.rxbinding.widget.RxTextView;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+
+import rx.Observable;
+import rx.Subscriber;
+import rx.functions.Func1;
 
 /**
  * Created by Hovhannes Asatryan on 23.07.16.
@@ -30,6 +36,8 @@ public class CreateNote extends AppCompatActivity {
 
         realmManager = new RealmManager(getApplicationContext());
 
+        makeObservable(etHead, 5);
+
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,6 +53,31 @@ public class CreateNote extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),"Note created!",Toast.LENGTH_SHORT).show();
                 MainActivity.notesAdapter.notifyDataSetChanged();
                 finish();
+            }
+        });
+    }
+
+    private void makeObservable(EditText editText, final int charLength){
+        Observable<CharSequence> observable = RxTextView.textChanges(editText);
+        observable.map(new Func1<CharSequence, Boolean>() {
+            @Override
+            public Boolean call(CharSequence charSequence) {
+                return charSequence.length() >= charLength;
+            }
+        }).subscribe(new Subscriber<Boolean>() {
+            @Override
+            public void onCompleted() {
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onNext(Boolean aBoolean) {
+                createButton.setEnabled(aBoolean);
             }
         });
     }

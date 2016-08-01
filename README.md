@@ -5,7 +5,7 @@ GITHUBUSERS is an application helps you to find Github user by his/her userName/
 
 NOTESREALM is an application for making notes. You can create new one with heading and body, the current time will be automatically added to the note. Then you can delete it. All the notes will be saved in the internal storage. Realm library was used for that reason!
 
-PRIVATECONTACTS is an application to save your private contacts. At first you are supposed to create a password and a hint in case if you forget it. Then you can create your own contacts simply entering contact name and number. Any time you can remove the contact. All the contacts sort automatically in alphabetical order and save to internal storage. Then you can call and send message just via in-built message sender. 
+PRIVATECONTACTS is an application to save your private contacts. At first you are supposed to create a password (it's gonna be encrypted and saved to device) and a hint in case if you forget it. Then you can create your own contacts simply entering contact name and number. Any time you can remove the contact. All the contacts sort automatically in alphabetical order and save to internal storage. Then you can call and send message just via in-built message sender. 
 For more information read in my blog http://johnnyblog.ru/archives/133
 
 SHOPSLIST is an application that gets json file and parse to Shop items, then shows in list view, also it sorts shops locations by distance in ascending order from Moscow.

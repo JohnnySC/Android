@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import org.jasypt.util.password.BasicPasswordEncryptor;
+
 /**
  * Created by Hovhannes Asatryan on 13.07.16.
  */
@@ -23,6 +25,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     final String SAVED_TEXT = "saved_text";
     final String SAVED_CODE = "saved_code";
     final String SAVED_HINT = "saved_hint";
+    BasicPasswordEncryptor passwordEncryptor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +34,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         sharedPreferences = getPreferences(MODE_PRIVATE);
         code = sharedPreferences.getInt(SAVED_CODE, 0);
+        passwordEncryptor = new BasicPasswordEncryptor();
 
         if(code==0) {
             findViewById(R.id.entering).setVisibility(View.INVISIBLE);
@@ -78,7 +82,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }else {
             if (passwordONE.equals(passwordTWO)) {
                 SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putString(SAVED_TEXT,passwordONE);
+                String encryptedPassword = passwordEncryptor.encryptPassword(passwordONE);
+                editor.putString(SAVED_TEXT,encryptedPassword);
                 editor.putString(SAVED_HINT,hintWord);
                 editor.putInt(SAVED_CODE,1);
                 editor.apply();
@@ -93,7 +98,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         String passwordFromFile = sharedPreferences.getString(SAVED_TEXT,"");
         String getPassword = passwordMain.getText().toString();
         String hintWord = sharedPreferences.getString(SAVED_HINT,"");
-        if(passwordFromFile.equals(getPassword)){
+        if(passwordEncryptor.checkPassword(getPassword,passwordFromFile)){
             goToMain();
         }else{
             showSnackBar(2,"Неверный пароль!");

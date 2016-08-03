@@ -24,17 +24,15 @@ public class FavoritePoems extends Activity {
     Button sureClearing;
     Button cancelClearing;
     public static Activity favoritePoemsActivity;
+    ListView favoritesList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.favorites);
 
+        initUI();
         favoritePoemsActivity = this;
-        ListView favoritesList = (ListView)findViewById(R.id.favoritesList);
-        clearFavorites = (Button)findViewById(R.id.clearFavorites);
-        sureClearing = (Button)findViewById(R.id.sureButton);
-        cancelClearing = (Button)findViewById(R.id.cancelButton);
         favPosition = 0;
         favCode = 0;
 
@@ -48,6 +46,13 @@ public class FavoritePoems extends Activity {
                 startActivityForResult(i,0);
             }
         });
+    }
+
+    private void initUI() {
+        favoritesList = (ListView)findViewById(R.id.favoritesList);
+        clearFavorites = (Button)findViewById(R.id.clearFavorites);
+        sureClearing = (Button)findViewById(R.id.sureButton);
+        cancelClearing = (Button)findViewById(R.id.cancelButton);
     }
 
     public void clearFavorites(View view){

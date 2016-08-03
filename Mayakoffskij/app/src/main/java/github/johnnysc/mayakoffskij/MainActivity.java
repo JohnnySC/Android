@@ -17,7 +17,7 @@ import java.util.ArrayList;
  * Created by Hovhannes Asatryan (https://github.com/JohnnySC) on 05.05.16.
  */
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements View.OnClickListener{
     public static PoemAdapter poemAdapter;
     public static int positionOfItem;
     Button searchButton;
@@ -40,21 +40,25 @@ public class MainActivity extends Activity {
         positionOfItem = 0;
         fontSize = 20;
 
-        listView = (ListView)findViewById(R.id.poems_list);
+        initUI();
         poemAdapter = new PoemAdapter();
         listView.setAdapter(poemAdapter);
         allPoems = new Poems();
-        allPoemsCount = (TextView)findViewById(R.id.allPoemsCount);
         String text = "Стихи и поэмы: " + Poems.poems.size();
         allPoemsCount.setText(text);
 
-        searchButton = (Button)findViewById(R.id.searchButton);
-        searchText = (EditText)findViewById(R.id.searchText);
-        goToFavorites = (Button)findViewById(R.id.gotoFavorites);
-        fontSizeMinus = (Button)findViewById(R.id.fontsizeminus);
-        fontSizePlus = (Button)findViewById(R.id.fontsizeplus);
-        fontExample = (TextView)findViewById(R.id.fontexample);
         fontExample.setTextSize(fontSize);
+
+        setButtonsListener();
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            public void onItemClick(AdapterView<?> parent,View view,int position,long id){
+                positionOfItem = position;
+                FavoritePoems.favCode = 0;
+                startNewActivity(PoemView.class);
+            }
+        }
+        );
 
         try {
             FileIO.readData(getApplicationContext(), openFileInput(FileIO.file_name));
@@ -62,59 +66,57 @@ public class MainActivity extends Activity {
             e.printStackTrace();
         }
 
-        searchButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+    }
+
+    private void initUI() {
+        listView = (ListView)findViewById(R.id.poems_list);
+        allPoemsCount = (TextView)findViewById(R.id.allPoemsCount);
+        searchButton = (Button)findViewById(R.id.searchButton);
+        searchText = (EditText)findViewById(R.id.searchText);
+        goToFavorites = (Button)findViewById(R.id.gotoFavorites);
+        fontSizeMinus = (Button)findViewById(R.id.fontsizeminus);
+        fontSizePlus = (Button)findViewById(R.id.fontsizeplus);
+        fontExample = (TextView)findViewById(R.id.fontexample);
+    }
+
+    private void setButtonsListener() {
+        searchButton.setOnClickListener(this);
+        goToFavorites.setOnClickListener(this);
+        fontSizeMinus.setOnClickListener(this);
+        fontSizePlus.setOnClickListener(this);
+    }
+
+    private void startNewActivity(Class another){
+        Intent intent = new Intent(MainActivity.this, another);
+        startActivity(intent);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch(v.getId()){
+            case R.id.searchButton:
                 if(searchText.getText().toString().length()>0){
-                    Intent intent = new Intent(MainActivity.this, SearchResultsList.class);
-                    startActivityForResult(intent,0);
+                    startNewActivity(SearchResultsList.class);
                 }
-            }
-        });
+                break;
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
-            public void onItemClick(AdapterView<?> parent,View view,int position,long id){
-                positionOfItem = position;
-                FavoritePoems.favCode = 0;
-                Intent intent = new Intent(MainActivity.this, PoemView.class);
-                startActivityForResult(intent,0);
-            }
-        }
-        );
+            case R.id.gotoFavorites:
+                startNewActivity(FavoritePoems.class);
+                break;
 
-        goToFavorites.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, FavoritePoems.class);
-                startActivityForResult(i,0);
-            }
-        });
-
-        fontSizeMinus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            case R.id.fontsizeminus:
                 if(fontSize>13) {
                     fontSize--;
                     fontExample.setTextSize(fontSize);
                 }
+                break;
 
-            }
-        });
-
-        fontSizePlus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            case R.id.fontsizeplus:
                 if(fontSize<30) {
                     fontSize++;
                     fontExample.setTextSize(fontSize);
                 }
-            }
-        });
-
+                break;
+        }
     }
-
-    public void clearEditText(View view){
-        searchText.setText("");
-    }
-
 }

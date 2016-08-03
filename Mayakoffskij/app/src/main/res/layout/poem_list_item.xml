@@ -6,6 +6,9 @@
     android:id="@+id/poems_list">
 
     <TextView
+        android:textStyle="normal"
+        android:typeface="serif"
+        android:layout_marginLeft="10sp"
         android:textColor="@color/darkGray"
         android:id="@+id/name_view"
         android:layout_width="match_parent"
@@ -14,9 +17,12 @@
         android:paddingBottom="5dp"/>
 
     <TextView
+        android:typeface="sans"
+        android:layout_marginLeft="10sp"
+        android:layout_marginBottom="15sp"
         android:textColor="@color/darkGray"
         android:id="@+id/poem_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="14sp" />
+        android:textSize="16sp" />
 </LinearLayout>

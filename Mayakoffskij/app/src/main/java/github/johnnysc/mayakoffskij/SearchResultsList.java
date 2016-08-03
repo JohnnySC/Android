@@ -49,7 +49,7 @@ public class SearchResultsList extends Activity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id){
                 foundPosition = indexes.get(position);
                 Intent intent = new Intent(SearchResultsList.this, FoundPoemView.class);
-                startActivityForResult(intent,0);
+                startActivity(intent);
             }
         });
 

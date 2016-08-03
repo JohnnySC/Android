@@ -20,7 +20,6 @@ public class FoundPoemsAdapter extends BaseAdapter {
 
     public static void addFoundPoem(PoemRecord foundPoem){
         foundPoems.add(foundPoem);
-
     }
 
     @Override

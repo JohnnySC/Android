@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/border">
+
+    <ImageView
+        android:paddingTop="@dimen/watch_padding"
+        android:layout_marginRight="@dimen/padding_1sp"
+        android:layout_marginLeft="@dimen/padding_1sp"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/watch_height"
+        android:id="@+id/watchImageView"
+        android:contentDescription="@string/watch_image" />
+    <TextView
+        android:layout_gravity="center"
+        android:padding="@dimen/padding_2sp"
+        android:textStyle="bold"
+        android:id="@+id/watchName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_gravity="center"
+        android:padding="@dimen/padding_2sp"
+        android:textStyle="italic"
+        android:id="@+id/watchBrand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_gravity="center"
+        android:padding="@dimen/padding_2sp"
+        android:typeface="sans"
+        android:id="@+id/watchCollection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_gravity="center"
+        android:padding="@dimen/padding_2sp"
+        android:id="@+id/watchRef"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:textStyle="bold"
+        android:background="@drawable/one_border"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/usd_margin_bottom"
+        android:padding="@dimen/padding_3sp"
+        android:typeface="serif"
+        android:id="@+id/watchUSD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</LinearLayout>

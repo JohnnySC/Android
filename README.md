@@ -1,6 +1,8 @@
 # Android
 Here are applications/games written in Java for Android devices
 
+WATCHES is a test application for watchj.com. It gets data about watches and banners via Rest client (Retrofit2 used), makes infinite viewPager for banner and shows images via Picasso dynamically downloading them. It supposes Android 5.0 (minSdk is 21).
+
 GITHUBUSERS is an application helps you to find Github user by his/her userName/name. It uses GitHub API, Retrofit2 and Picasso for images.
 
 NOTESREALM is an application for making notes. You can create new one with heading and body, the current time will be automatically added to the note. Then you can delete it. All the notes will be saved in the internal storage. Realm library was used for that reason!

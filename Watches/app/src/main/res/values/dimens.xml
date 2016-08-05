@@ -1,0 +1,13 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="activity_zero_margin">0dp</dimen>
+
+    <dimen name="watch_height">150sp</dimen>
+    <dimen name="watch_padding">10sp</dimen>
+    <dimen name="padding_1sp">1sp</dimen>
+    <dimen name="padding_2sp">2sp</dimen>
+    <dimen name="padding_3sp">3sp</dimen>
+    <dimen name="usd_margin_bottom">15sp</dimen>
+</resources>

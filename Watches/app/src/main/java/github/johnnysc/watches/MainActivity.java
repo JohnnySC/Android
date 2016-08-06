@@ -19,6 +19,9 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindString;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import github.johnnysc.watches.Adapters.*;
 import github.johnnysc.watches.Rest.*;
 import retrofit2.Call;
@@ -30,23 +33,23 @@ import retrofit2.Response;
  */
 public class MainActivity extends Activity {
     RestManager restManager;
-    final String signatureBanner = "9663CB5B848B7ADF7B76A39A08F62C454CE48C19E5DF18F55BC1953207646622";
-    final String nonceBanner = "984";
-    final String signatureWatch = "F45836929CE3A2586406C0B1F04BE37B01098841A4B62FD8E7E12DCDC86CB625";
-    final String nonceWatch = "330";
     List<Banner> bannerLIST;
     List<Watch> watchLIST;
-    CustomPagerAdapter mCustomPagerAdapter;
-    ViewPager mViewPager;
+    @BindString(R.string.signature_banner) String signatureBanner;
+    @BindString(R.string.nonce_banner) String nonceBanner;
+    @BindString(R.string.signature_watch) String signatureWatch;
+    @BindString(R.string.nonce_watch) String nonceWatch;
+    @BindView(R.id.bannerViewPager) ViewPager mViewPager;
+    @BindView(R.id.recyclerView) RecyclerView recyclerView;
     WatchRecycleAdapter watchAdapter;
-    RecyclerView recyclerView;
+    CustomPagerAdapter mCustomPagerAdapter;
     GridLayoutManager layoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        ButterKnife.bind(this);
         getBannerData();
         getWatchesData();
     }
@@ -104,8 +107,6 @@ public class MainActivity extends Activity {
         mCustomPagerAdapter = new CustomPagerAdapter(this);
         PagerAdapter adapter = new InfinitePagerAdapter(mCustomPagerAdapter);
 
-        mViewPager = (ViewPager) findViewById(R.id.bannerViewPager);
-
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT);
@@ -122,7 +123,6 @@ public class MainActivity extends Activity {
 
     private void initWatchesView(){
         layoutManager = new GridLayoutManager(MainActivity.this, 2);
-        recyclerView = (RecyclerView)findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(layoutManager);
         watchAdapter = new WatchRecycleAdapter(watchLIST);
         recyclerView.setAdapter(watchAdapter);

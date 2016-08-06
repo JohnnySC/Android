@@ -2,16 +2,15 @@ package github.johnnysc.watches;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Color;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewConfiguration;
 import android.view.ViewGroup;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -39,8 +38,9 @@ public class MainActivity extends Activity {
     List<Watch> watchLIST;
     CustomPagerAdapter mCustomPagerAdapter;
     ViewPager mViewPager;
-    GridView gridView;
-    WatchAdapter watchAdapter;
+    WatchRecycleAdapter watchAdapter;
+    RecyclerView recyclerView;
+    GridLayoutManager layoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -121,14 +121,11 @@ public class MainActivity extends Activity {
     }
 
     private void initWatchesView(){
-        gridView = (GridView)findViewById(R.id.gridView);
-        gridView.setBackgroundColor(Color.WHITE);
-        gridView.setHorizontalSpacing(0);
-        gridView.setVerticalSpacing(0);
-        gridView.setFriction(ViewConfiguration.getScrollFriction()*10);
-        watchAdapter = new WatchAdapter(this, (ArrayList<Watch>) watchLIST);
-        gridView.setAdapter(watchAdapter);
-        Log.d("myLog","count of Watches is " + watchAdapter.getCount());
+        layoutManager = new GridLayoutManager(MainActivity.this, 2);
+        recyclerView = (RecyclerView)findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(layoutManager);
+        watchAdapter = new WatchRecycleAdapter(watchLIST);
+        recyclerView.setAdapter(watchAdapter);
     }
 
     private class CustomPagerAdapter extends PagerAdapter {

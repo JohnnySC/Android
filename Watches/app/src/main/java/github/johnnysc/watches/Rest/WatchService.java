@@ -6,6 +6,8 @@ import retrofit2.http.Query;
 
 /**
  * Created by Hovhannes Asatryan on 04.08.16.
+ *
+ * There is no difference between GET and POST
  */
 public interface WatchService {
     @GET("watches/popular")

@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Watches</string>
     <string name="watch_image">WatchImage</string>
+    <string name="signature_banner">9663CB5B848B7ADF7B76A39A08F62C454CE48C19E5DF18F55BC1953207646622</string>
+    <string name="nonce_banner">984</string>
+    <string name="signature_watch">F45836929CE3A2586406C0B1F04BE37B01098841A4B62FD8E7E12DCDC86CB625</string>
+    <string name="nonce_watch">330</string>
 </resources>

@@ -8,10 +8,10 @@
     android:orientation="vertical">
 
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/bannerViewPager"
+    <github.johnnysc.watches.Adapters.InfiniteViewPager
+        android:id="@+id/infViewPager"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
 
    <android.support.v7.widget.RecyclerView
        android:id="@+id/recyclerView"

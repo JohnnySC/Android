@@ -2,6 +2,7 @@ package github.johnnysc.watches;
 
 import android.app.Activity;
 import android.content.Context;
+import android.os.Handler;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
@@ -18,6 +19,8 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import butterknife.BindString;
 import butterknife.BindView;
@@ -39,7 +42,7 @@ public class MainActivity extends Activity {
     @BindString(R.string.nonce_banner) String nonceBanner;
     @BindString(R.string.signature_watch) String signatureWatch;
     @BindString(R.string.nonce_watch) String nonceWatch;
-    @BindView(R.id.bannerViewPager) ViewPager mViewPager;
+    @BindView(R.id.infViewPager) InfiniteViewPager infViewPager;
     @BindView(R.id.recyclerView) RecyclerView recyclerView;
     WatchRecycleAdapter watchAdapter;
     CustomPagerAdapter mCustomPagerAdapter;
@@ -111,14 +114,34 @@ public class MainActivity extends Activity {
                 LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT);
 
-        double viewPagerWidth = (double) mViewPager.getWidth()*1.001;
+        double viewPagerWidth = (double) infViewPager.getWidth()*1.001;
         double viewPagerHeight = viewPagerWidth * 0.61037;
         layoutParams.width = (int) viewPagerWidth;
         layoutParams.height = (int) viewPagerHeight;
 
-        mViewPager.setLayoutParams(layoutParams);
-        mViewPager.setOffscreenPageLimit(3);
-        mViewPager.setAdapter(adapter);
+        infViewPager.setLayoutParams(layoutParams);
+        infViewPager.setOffscreenPageLimit(3);
+        infViewPager.setAdapter(adapter);
+
+        //makeAutoScrolling(); TODO uncomment this if you want make it auto scroll (also in InfiniteViewPager uncomment onTouch method)
+    }
+
+    private void makeAutoScrolling() {
+            final Handler handler = new Handler();
+
+            final Runnable update = new Runnable() {
+                public void run() {
+                    int nextItem = infViewPager.getCurrentItem();
+                    infViewPager.setCurrentItem(--nextItem, true);
+                }
+            };
+
+            new Timer().schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    handler.post(update);
+                }
+            }, 3000, 2000);
     }
 
     private void initWatchesView(){

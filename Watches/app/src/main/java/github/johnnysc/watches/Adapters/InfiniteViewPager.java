@@ -5,6 +5,8 @@ import android.content.Context;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
+
 /**
  * Created by Hovhannes Asatryan on 04.08.16.
  */
@@ -71,4 +73,11 @@ public class InfiniteViewPager extends ViewPager {
             return 0;
         }
     }
+
+/* Uncomment this after uncommenting autoscrolling method in MainActivity
+    @Override
+    public boolean onTouchEvent(MotionEvent ev) {
+        return false;
+    }
+*/
 }

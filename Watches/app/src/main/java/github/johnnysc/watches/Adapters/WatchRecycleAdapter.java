@@ -12,6 +12,8 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import github.johnnysc.watches.R;
 import github.johnnysc.watches.Rest.Watch;
 
@@ -54,21 +56,16 @@ public class WatchRecycleAdapter extends RecyclerView.Adapter<WatchRecycleAdapte
     }
 
     public class Holder extends RecyclerView.ViewHolder{
-        ImageView watchImage;
-        TextView watchName;
-        TextView watchBrand;
-        TextView watchCollection;
-        TextView watchRef;
-        TextView watchUSD;
+        @BindView(R.id.watchImageView) ImageView watchImage;
+        @BindView(R.id.watchName) TextView watchName;
+        @BindView(R.id.watchBrand) TextView watchBrand;
+        @BindView(R.id.watchCollection) TextView watchCollection;
+        @BindView(R.id.watchRef) TextView watchRef;
+        @BindView(R.id.watchUSD) TextView watchUSD;
 
         public Holder(View itemView) {
             super(itemView);
-            watchImage = (ImageView)itemView.findViewById(R.id.watchImageView);
-            watchName = (TextView)itemView.findViewById(R.id.watchName);
-            watchBrand = (TextView)itemView.findViewById(R.id.watchBrand);
-            watchCollection = (TextView)itemView.findViewById(R.id.watchCollection);
-            watchRef = (TextView)itemView.findViewById(R.id.watchRef);
-            watchUSD = (TextView)itemView.findViewById(R.id.watchUSD);
+            ButterKnife.bind(this,itemView);
         }
     }
 }

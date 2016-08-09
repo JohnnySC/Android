@@ -8,15 +8,16 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /*
  * Created by Hovhannes Asatryan (https://github.com/JohnnySC) on 05.05.16.
  */
 public class FavoritePoemsAdapter extends BaseAdapter{
     public static ArrayList<PoemRecord> favoritePoems = new ArrayList<>();
-
-    public FavoritePoemsAdapter(){
-
-    }
+    @BindView(R.id.name_view) TextView nameTextView;
+    @BindView(R.id.poem_view) TextView poemTextView;
 
     @Override
     public int getCount() {
@@ -42,11 +43,10 @@ public class FavoritePoemsAdapter extends BaseAdapter{
 
         PoemRecord poem = favoritePoems.get(position);
 
-        TextView nameTextView = (TextView)convertView.findViewById(R.id.name_view);
+        ButterKnife.bind(this,convertView);
         nameTextView.setText(poem.getName());
-
-        TextView poemTextView = (TextView)convertView.findViewById(R.id.poem_view);
         poemTextView.setText(poem.getPoem());
+
         return convertView;
     }
 }

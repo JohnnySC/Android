@@ -26,7 +26,7 @@
         </activity>
         <activity
             android:name="github.johnnysc.mayakoffskij.MainActivity"
-            android:configChanges="orientation|screenSize" >
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="github.johnnysc.mayakoffskij.PoemView"
@@ -36,9 +36,13 @@
             android:name="github.johnnysc.mayakoffskij.FoundPoemView"
             android:configChanges="orientation|screenSize" >
         </activity>
-        <activity android:name="github.johnnysc.mayakoffskij.SearchResultsList" >
+        <activity
+            android:name="github.johnnysc.mayakoffskij.SearchResultsList"
+            android:screenOrientation="portrait" >
         </activity>
-        <activity android:name="github.johnnysc.mayakoffskij.FavoritePoems" >
+        <activity
+            android:name="github.johnnysc.mayakoffskij.FavoritePoems"
+            android:configChanges="orientation|screenSize" >
         </activity>
     </application>
 

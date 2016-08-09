@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "/home/johnny/Android/Android.git/Mayakoffskij/app/build/intermediates/res/merged/debug/values-w820dp-v13/values-w820dp-v13.xml",
+        "outputFile": "/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/res/merged/debug/values-w820dp-v13/values-w820dp-v13.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 108
                 },
                 "from": {
-                    "file": "/home/johnny/Android/Android.git/Mayakoffskij/app/src/main/res/values-w820dp/dimens.xml",
+                    "file": "/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/src/main/res/values-w820dp/dimens.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,

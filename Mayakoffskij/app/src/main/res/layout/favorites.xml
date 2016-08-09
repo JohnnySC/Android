@@ -30,39 +30,15 @@
 
     <Button
         android:textColor="@color/darkGray"
-        android:onClick="clearFavorites"
         android:textSize="15sp"
+        android:background="@drawable/buttonshape"
+        android:padding="4sp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/button_height"
         android:text="@string/clear_favorites"
         android:id="@+id/clearFavorites"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
-    <Button
-        android:visibility="gone"
-        android:textColor="@color/darkGray"
-        android:onClick="cancelClearing"
-        android:textSize="15sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/cancel"
-        android:id="@+id/cancelButton"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/sureButton"
-        android:layout_toEndOf="@+id/sureButton" />
-
-    <Button
-        android:visibility="gone"
-        android:textColor="@color/darkGray"
-        android:onClick="sureClearing"
-        android:textSize="15sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/sure"
-        android:id="@+id/sureButton"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
 </RelativeLayout>

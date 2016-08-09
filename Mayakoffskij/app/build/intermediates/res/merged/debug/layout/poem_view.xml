@@ -9,6 +9,7 @@
     android:background="@drawable/background">
 
     <RelativeLayout
+        android:id="@+id/relativeLayout"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -24,9 +25,11 @@
     <Button
         android:textColor="@color/darkGray"
         android:textSize="15sp"
+        android:padding="3sp"
+        android:background="@drawable/buttonshape"
         android:id="@+id/nextButton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/button_height"
         android:text="@string/nextPoem"
         android:layout_below="@+id/aPoemTextView"
         android:layout_alignParentRight="true"
@@ -35,9 +38,11 @@
         <Button
             android:textColor="@color/darkGray"
             android:textSize="15sp"
+            android:padding="3sp"
+            android:background="@drawable/buttonshape"
             android:id="@+id/previousButton"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/button_height"
             android:text="@string/previousPoem"
             android:layout_alignTop="@+id/add_to_favorites"
             android:layout_toRightOf="@+id/remove_from_favorites"
@@ -46,8 +51,10 @@
     <Button
         android:textColor="@color/darkGray"
         android:textSize="15sp"
+        android:padding="3sp"
+        android:background="@drawable/buttonshape"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/button_height"
         android:text="@string/add_to_favorites"
         android:id="@+id/add_to_favorites"
         android:layout_below="@+id/nextButton"
@@ -58,8 +65,10 @@
         android:visibility="gone"
         android:textColor="@color/darkGray"
         android:textSize="15sp"
+        android:padding="3sp"
+        android:background="@drawable/buttonshape"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/button_height"
         android:text="@string/remove_from_favs"
         android:id="@+id/remove_from_favorites"
         android:layout_below="@+id/add_to_favorites"

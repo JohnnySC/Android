@@ -19,7 +19,7 @@
         </activity>
 
         <activity android:name=".MainActivity"
-            android:configChanges="orientation|screenSize">
+            android:screenOrientation="portrait">
 
         </activity>
         <activity android:name=".PoemView"
@@ -30,10 +30,12 @@
             android:configChanges="orientation|screenSize">
 
         </activity>
-        <activity android:name=".SearchResultsList">
+        <activity android:name=".SearchResultsList"
+            android:screenOrientation="portrait">
 
         </activity>
-        <activity android:name=".FavoritePoems">
+        <activity android:name=".FavoritePoems"
+            android:configChanges="orientation|screenSize">
 
         </activity>
     </application>

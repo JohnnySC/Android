@@ -2,60 +2,88 @@
 <items version="2" >
 
     <item
-        jar="/home/johnny/Android/Android.git/Mayakoffskij/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.3.0/jars/classes.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="a0b5d60246cd9d4f3f2443611b3b4c25265840b5">
-        <dex dex="/home/johnny/Android/Android.git/Mayakoffskij/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-23.3.0_5c20649725f4a1d559ee42449e06245ec03e2595.jar" />
-    </item>
-    <item
-        jar="/home/johnny/Android/Android.git/Mayakoffskij/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="6112444253b2e5a5db27a58b2354e139442139d8">
-        <dex dex="/home/johnny/Android/Android.git/Mayakoffskij/app/build/intermediates/pre-dexed/debug/instant-run_dc9b21d1ca002c636e613304dd3811e7eb0d035c.jar" />
-    </item>
-    <item
-        jar="/home/johnny/Android/Android.git/Mayakoffskij/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.3.0/jars/classes.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="23be6993826b8fd88bbc8d14928bb3b8960d3d4e">
-        <dex dex="/home/johnny/Android/Android.git/Mayakoffskij/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-23.3.0_6f82f35a373f3d08edcb07c385ea5ebd022d1de5.jar" />
-    </item>
-    <item
-        jar="/home/johnny/Android/Android.git/Mayakoffskij/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="9041f7f1e6588155c7a2a84f468e01a39a08ea04">
-        <dex dex="/home/johnny/Android/Android.git/Mayakoffskij/app/build/intermediates/pre-dexed/debug/instant-run-bootstrap_af7b80513a7650ff7aee7e7202cfb17e668ec170.jar" />
-    </item>
-    <item
-        jar="/home/johnny/Android/Android.git/Mayakoffskij/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.3.0/jars/libs/internal_impl-23.3.0.jar"
+        jar="/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.3.0/jars/libs/internal_impl-23.3.0.jar"
         jumboMode="true"
         revision="23.0.2"
         sha1="4da5a4d697d32497c6f85567a5112e62fdfd0676">
-        <dex dex="/home/johnny/Android/Android.git/Mayakoffskij/app/build/intermediates/pre-dexed/debug/internal_impl-23.3.0_5e74a3c8ad77ab08fb32cd65637a28e623096507.jar" />
+        <dex dex="/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/pre-dexed/debug/internal_impl-23.3.0_85026fcff70e8b447ce456897f4e05845a144826.jar" />
     </item>
     <item
-        jar="/home/johnny/Android/Android.git/Mayakoffskij/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/jars/classes.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="1b8e03daaa43fb0a4cd57e378167c2fd70454c1e">
-        <dex dex="/home/johnny/Android/Android.git/Mayakoffskij/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-23.3.0_e97e002b049119bd59b71afc01022dc6926e2d07.jar" />
-    </item>
-    <item
-        jar="/home/johnny/Android/Android.git/Mayakoffskij/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.3.0/jars/classes.jar"
+        jar="/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.3.0/jars/classes.jar"
         jumboMode="true"
         revision="23.0.2"
         sha1="8a034dd16c0dfd75fe86c52c2cd581592acc684a">
-        <dex dex="/home/johnny/Android/Android.git/Mayakoffskij/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-23.3.0_5b0c53124aafc604a16c6d2c2ca613d9048495e0.jar" />
+        <dex dex="/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-23.3.0_a3e545910420453ef2ea197d00b170179476eb24.jar" />
     </item>
     <item
-        jar="/home/johnny/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/23.3.0/support-annotations-23.3.0.jar"
+        jar="/home/johnny/.gradle/caches/modules-2/files-2.1/com.android.support/support-annotations/24.0.0/2943c74db6d4346ab8c6531adac91fa05c137c40/support-annotations-24.0.0.jar"
         jumboMode="true"
         revision="23.0.2"
-        sha1="db7791d75a07fef9844d06236c1c59ba7bf6997c">
-        <dex dex="/home/johnny/Android/Android.git/Mayakoffskij/app/build/intermediates/pre-dexed/debug/support-annotations-23.3.0_16e8bb90f1fec37af1a4743eea1f9ff736e06e24.jar" />
+        sha1="2943c74db6d4346ab8c6531adac91fa05c137c40">
+        <dex dex="/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/pre-dexed/debug/support-annotations-24.0.0_f5e53cbf84de5b5feb0c64f5d529dd9dbe5ef10f.jar" />
+    </item>
+    <item
+        jar="/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.3.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="debf30ce0a7560396b6235edef77e447006454c2">
+        <dex dex="/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/pre-dexed/debug/com.android.support-recyclerview-v7-23.3.0_a6ffde649c374eb86906e173a0d30d7f8a10633b.jar" />
+    </item>
+    <item
+        jar="/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.3.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="23be6993826b8fd88bbc8d14928bb3b8960d3d4e">
+        <dex dex="/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-23.3.0_e0a90e024749abeaa51ac3239a213229adaf15f4.jar" />
+    </item>
+    <item
+        jar="/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/exploded-aar/com.jakewharton/butterknife/8.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="ca5e58104f56f918f0fb3a5b1b371ab599ae56b2">
+        <dex dex="/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/pre-dexed/debug/com.jakewharton-butterknife-8.2.1_1f5f47b48169b9a1e4918b2aa1ed5fd130ed0320.jar" />
+    </item>
+    <item
+        jar="/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="1b8e03daaa43fb0a4cd57e378167c2fd70454c1e">
+        <dex dex="/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-23.3.0_7ef0dad025b7dcf2b01aa2c60943bad0ffc2150c.jar" />
+    </item>
+    <item
+        jar="/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="a19c4cae7af0b2e2958727a06e03ae9afe6046b2">
+        <dex dex="/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/pre-dexed/debug/instant-run_d63dcbae631d5ecdacab365dd3ee770a08539153.jar" />
+    </item>
+    <item
+        jar="/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.3.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="a0b5d60246cd9d4f3f2443611b3b4c25265840b5">
+        <dex dex="/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-23.3.0_2076847c70f04ff0a50e2639ecbb1836edd2a447.jar" />
+    </item>
+    <item
+        jar="/home/johnny/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife-annotations/8.2.1/d6f54d76edfbe779a50a8636b10fd3f555d8f780/butterknife-annotations-8.2.1.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="d6f54d76edfbe779a50a8636b10fd3f555d8f780">
+        <dex dex="/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/pre-dexed/debug/butterknife-annotations-8.2.1_ae5fa7aad4d633dc320200cae37ea8921c83d206.jar" />
+    </item>
+    <item
+        jar="/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="05c87f38a3c486afcacef358e89c921c226c7e63">
+        <dex dex="/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/pre-dexed/debug/instant-run-bootstrap_5fd11d36ef4db46719ed78fb7668f55c5cdd2c64.jar" />
+    </item>
+    <item
+        jar="/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/exploded-aar/com.android.support/design/23.3.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="f0001e71cea6ae432a00021c6f727f5ef0f3d27e">
+        <dex dex="/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/pre-dexed/debug/com.android.support-design-23.3.0_71619d4d5fe1abaf4bc6e38e232e2d54c724eb59.jar" />
     </item>
 
 </items>

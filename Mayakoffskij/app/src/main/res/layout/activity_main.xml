@@ -20,13 +20,17 @@
     <Button
         android:textColor="@color/darkGray"
         android:textSize="15sp"
+        android:background="@drawable/buttonshape"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/button_height"
         android:text="@string/search"
         android:id="@+id/searchButton"
         android:layout_alignBottom="@+id/searchText"
         android:layout_alignRight="@+id/gotoFavorites"
-        android:layout_alignEnd="@+id/gotoFavorites" />
+        android:layout_alignEnd="@+id/gotoFavorites"
+        android:layout_alignTop="@+id/searchText"
+        android:layout_toRightOf="@+id/allPoemsCount"
+        android:layout_toEndOf="@+id/allPoemsCount" />
 
     <EditText
         android:textColor="@color/darkGray"
@@ -45,12 +49,15 @@
         android:textColor="@color/darkGray"
         android:textSize="15sp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/button_height"
+        android:background="@drawable/buttonshape"
         android:text="@string/favs"
         android:id="@+id/gotoFavorites"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/fontexample"
+        android:layout_toRightOf="@+id/fontexample" />
 
 
     <TextView
@@ -68,7 +75,8 @@
 
     <Button
         android:textColor="@color/darkGray"
-        android:textSize="15sp"
+        android:textSize="13sp"
+        android:background="@drawable/buttonshape"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/fontsizeminus"
@@ -79,14 +87,15 @@
 
     <Button
         android:textColor="@color/darkGray"
-        android:textSize="15sp"
+        android:textSize="13sp"
+        android:background="@drawable/buttonshape"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/fontsizeplus"
         android:id="@+id/fontsizeplus"
-        android:layout_below="@+id/poems_list"
         android:layout_toRightOf="@+id/fontsizeminus"
-        android:layout_toEndOf="@+id/fontsizeminus" />
+        android:layout_toEndOf="@+id/fontsizeminus"
+        android:layout_alignTop="@+id/fontsizeminus" />
 
     <TextView
         android:textColor="@color/darkGray"

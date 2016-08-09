@@ -8,11 +8,16 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /*
  * Created by Hovhannes Asatryan (https://github.com/JohnnySC) on 05.05.16.
  */
 public class FoundPoemsAdapter extends BaseAdapter {
     public static ArrayList<PoemRecord> foundPoems;
+    @BindView(R.id.name_view) TextView nameTextView;
+    @BindView(R.id.poem_view) TextView poemTextView;
 
     public FoundPoemsAdapter(){
         foundPoems = new ArrayList<>();
@@ -46,13 +51,10 @@ public class FoundPoemsAdapter extends BaseAdapter {
 
         PoemRecord poem = foundPoems.get(position);
 
-        TextView nameTextView = (TextView)convertView.findViewById(R.id.name_view);
+        ButterKnife.bind(this,convertView);
         nameTextView.setText(poem.getName());
-
-        TextView poemTextView = (TextView)convertView.findViewById(R.id.poem_view);
         poemTextView.setText(poem.getPoem());
+
         return convertView;
-
     }
-
 }

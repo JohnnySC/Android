@@ -1,4 +1,4 @@
-package github.johnnysc.githubusers;
+package github.johnnysc.githubusers.Adapter;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,6 +11,11 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import github.johnnysc.githubusers.Model.GithubUser;
+import github.johnnysc.githubusers.R;
 
 /**
  * Created by Hovhannes Asatryan on 22.07.16.
@@ -30,7 +35,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.Holder> {
 
     @Override
     public Holder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View row = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_item,parent,false);
+        View row = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_item, parent,false);
         return new Holder(row);
     }
 
@@ -57,13 +62,12 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.Holder> {
 
     public class Holder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        ImageView avatarImageView;
-        private TextView userLogin;
+        @BindView(R.id.avatarImageView) ImageView avatarImageView;
+        @BindView(R.id.userNameTxtView) TextView userLogin;
 
         public Holder(View itemView) {
             super(itemView);
-            avatarImageView = (ImageView)itemView.findViewById(R.id.avatarImageView);
-            userLogin = (TextView)itemView.findViewById(R.id.userNameTxtView);
+            ButterKnife.bind(this,itemView);
             itemView.setOnClickListener(this);
         }
 

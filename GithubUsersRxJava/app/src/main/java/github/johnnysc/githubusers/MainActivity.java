@@ -7,13 +7,18 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.widget.Button;
 import android.widget.EditText;
 
 import com.jakewharton.rxbinding.widget.RxTextView;
 
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import github.johnnysc.githubusers.Adapter.UserAdapter;
+import github.johnnysc.githubusers.Model.GithubUser;
+import github.johnnysc.githubusers.Model.UsersList;
+import github.johnnysc.githubusers.Rest.RestManager;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -24,11 +29,10 @@ import rx.Subscriber;
  * Created by Hovhannes Asatryan on 22.07.16.
  */
 public class MainActivity extends AppCompatActivity implements UserAdapter.UserClickListener {
-    RecyclerView recyclerView;
+    @BindView(R.id.recyclerView) RecyclerView recyclerView;
+    @BindView(R.id.etUserName) EditText editText;
     RestManager restManager;
     UserAdapter userAdapter;
-    EditText editText;
-    Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +43,7 @@ public class MainActivity extends AppCompatActivity implements UserAdapter.UserC
                 .permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
-        editText = (EditText)findViewById(R.id.etUserName);
-        recyclerView = (RecyclerView)findViewById(R.id.recyclerView);
+        ButterKnife.bind(this);
         recyclerView.setRecycledViewPool(new RecyclerView.RecycledViewPool());
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false));
         userAdapter = new UserAdapter(this);
@@ -54,12 +57,12 @@ public class MainActivity extends AppCompatActivity implements UserAdapter.UserC
         observable.subscribe(new Subscriber<CharSequence>() {
             @Override
             public void onCompleted() {
-
+                Log.d("myLog","Completed");
             }
 
             @Override
             public void onError(Throwable e) {
-
+                Log.d("myLog","Here is an error "+ e.getMessage());
             }
 
             @Override
@@ -93,7 +96,7 @@ public class MainActivity extends AppCompatActivity implements UserAdapter.UserC
     public void onClick(int position) {
         GithubUser selectedUser = userAdapter.getSelectedUser(position);
         Intent intent = new Intent(MainActivity.this,DetailActivity.class);
-        intent.putExtra("GITHUB_USER",selectedUser.getHtml_url());
+        intent.putExtra("GITHUB_USER", selectedUser.getHtml_url());
         startActivity(intent);
     }
 }

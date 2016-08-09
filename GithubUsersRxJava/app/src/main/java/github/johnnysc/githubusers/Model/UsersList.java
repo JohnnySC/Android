@@ -1,4 +1,4 @@
-package github.johnnysc.githubusers;
+package github.johnnysc.githubusers.Model;
 
 import com.google.gson.annotations.SerializedName;
 

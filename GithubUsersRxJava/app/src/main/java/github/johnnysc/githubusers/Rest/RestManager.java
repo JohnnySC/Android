@@ -1,4 +1,4 @@
-package github.johnnysc.githubusers;
+package github.johnnysc.githubusers.Rest;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

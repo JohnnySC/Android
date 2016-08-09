@@ -1,5 +1,6 @@
-package github.johnnysc.githubusers;
+package github.johnnysc.githubusers.Rest;
 
+import github.johnnysc.githubusers.Model.UsersList;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;

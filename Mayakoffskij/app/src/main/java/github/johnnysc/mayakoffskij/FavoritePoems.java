@@ -1,37 +1,39 @@
 package github.johnnysc.mayakoffskij;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 /*
  * Created by Hovhannes Asatryan (https://github.com/JohnnySC) on 05.05.16.
  */
 public class FavoritePoems extends Activity {
     public static ArrayList<Integer> favIndexes;
+    public static Activity favoritePoemsActivity;
     FavoritePoemsAdapter favPoemsAdapter = new FavoritePoemsAdapter();
     public static int favPosition;
     public static int favCode;
-    Button clearFavorites;
-    Button sureClearing;
-    Button cancelClearing;
-    public static Activity favoritePoemsActivity;
-    ListView favoritesList;
+    @BindView(R.id.favoritesList) ListView favoritesList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.favorites);
 
-        initUI();
+        ButterKnife.bind(this);
         favoritePoemsActivity = this;
         favPosition = 0;
         favCode = 0;
@@ -42,41 +44,34 @@ public class FavoritePoems extends Activity {
             public void onItemClick(AdapterView<?> parent, View view, int position,long id){
                 favCode = 1;
                 favPosition = favIndexes.get(position);
-                Intent i = new Intent(FavoritePoems.this,PoemView.class);
-                startActivityForResult(i,0);
+                Intent intent = new Intent(FavoritePoems.this,PoemView.class);
+                startActivity(intent);
             }
         });
     }
 
-    private void initUI() {
-        favoritesList = (ListView)findViewById(R.id.favoritesList);
-        clearFavorites = (Button)findViewById(R.id.clearFavorites);
-        sureClearing = (Button)findViewById(R.id.sureButton);
-        cancelClearing = (Button)findViewById(R.id.cancelButton);
-    }
+    @OnClick(R.id.clearFavorites)
+    void clearFavorites(){
+        new AlertDialog.Builder(this)
+                .setTitle("Oчистить список избранных")
+                .setMessage("Уверены, что хотите очистить список?")
+                .setNegativeButton("Отмена", new DialogInterface.OnClickListener() {
+                    @Override public void onClick(DialogInterface dialogInterface, int i) {
 
-    public void clearFavorites(View view){
-        sureClearing.setVisibility(View.VISIBLE);
-        cancelClearing.setVisibility(View.VISIBLE);
-        clearFavorites.setVisibility(View.GONE);
+                    }
+                })
+                .setPositiveButton("Да", new DialogInterface.OnClickListener() {
+                    @Override public void onClick(DialogInterface dialogInterface, int i) {
+                        FavoritePoemsAdapter.favoritePoems = new ArrayList<>();
+                        FavoritePoems.favIndexes = new ArrayList<>();
+                        Toast.makeText(getApplicationContext(),"Список избранных очищен",Toast.LENGTH_SHORT).show();
+                        try {
+                            FileIO.writeData(getApplicationContext(),openFileOutput(FileIO.file_name,MODE_PRIVATE));
+                        } catch (FileNotFoundException e) {
+                            e.printStackTrace();
+                        }
+                        finish();
+                    }
+                }).show();
     }
-
-    public void cancelClearing(View view){
-        sureClearing.setVisibility(View.GONE);
-        cancelClearing.setVisibility(View.GONE);
-        clearFavorites.setVisibility(View.VISIBLE);
-    }
-
-    public void sureClearing(View view){
-        FavoritePoemsAdapter.favoritePoems = new ArrayList<>();
-        FavoritePoems.favIndexes = new ArrayList<>();
-        Toast.makeText(getApplicationContext(),"Список избранных очищен",Toast.LENGTH_SHORT).show();
-        try {
-            FileIO.writeData(getApplicationContext(),openFileOutput(FileIO.file_name,MODE_PRIVATE));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        finish();
-    }
-
 }

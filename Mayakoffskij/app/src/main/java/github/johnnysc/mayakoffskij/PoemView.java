@@ -3,6 +3,7 @@ package github.johnnysc.mayakoffskij;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -10,22 +11,25 @@ import android.widget.Toast;
 
 import java.io.FileNotFoundException;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /*
  * Created by Hovhannes Asatryan (https://github.com/JohnnySC) on 05.05.16.
  */
 public class PoemView extends Activity implements View.OnClickListener {
-    TextView aPoemView;
-    Button nextButton;
-    Button previousButton;
-    Button addToFavorites;
-    Button removeFromFavorites;
+    @BindView(R.id.aPoemTextView) TextView aPoemView;
+    @BindView(R.id.nextButton) Button nextButton;
+    @BindView(R.id.previousButton) Button previousButton;
+    @BindView(R.id.add_to_favorites) Button addToFavorites;
+    @BindView(R.id.remove_from_favorites) Button removeFromFavorites;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.poem_view);
 
-        initUI();
+        ButterKnife.bind(this);
         if(FavoritePoems.favCode==1)
             aPoemView.setText(Poems.getPoem(FavoritePoems.favPosition));
         else
@@ -53,14 +57,6 @@ public class PoemView extends Activity implements View.OnClickListener {
         previousButton.setVisibility(View.GONE);
 
         addToFavorites.setOnClickListener(this);
-    }
-
-    private void initUI() {
-        aPoemView = (TextView)findViewById(R.id.aPoemTextView);
-        nextButton = (Button)findViewById(R.id.nextButton);
-        previousButton = (Button)findViewById(R.id.previousButton);
-        addToFavorites = (Button)findViewById(R.id.add_to_favorites);
-        removeFromFavorites = (Button)findViewById(R.id.remove_from_favorites);
     }
 
     @Override
@@ -91,20 +87,27 @@ public class PoemView extends Activity implements View.OnClickListener {
                 break;
 
             case R.id.remove_from_favorites:
-                FavoritePoemsAdapter.favoritePoems.remove(PoemAdapter.poems.get(FavoritePoems.favPosition));
-                for(int i=0;i<FavoritePoems.favIndexes.size();i++) {
-                    if (FavoritePoems.favPosition == FavoritePoems.favIndexes.get(i)){
-                        FavoritePoems.favIndexes.remove(i);
-                        Toast.makeText(getApplicationContext(), "Удалено из избранных", Toast.LENGTH_SHORT).show();
-                        try {
-                            FileIO.writeData(getApplicationContext(),openFileOutput(FileIO.file_name,MODE_PRIVATE));
-                        } catch (FileNotFoundException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
-                FavoritePoems.favoritePoemsActivity.finish();
-                startNewActivity(FavoritePoems.class);
+                Snackbar snackbar = Snackbar.make(findViewById(R.id.relativeLayout),"Убрать из избранных?",Snackbar.LENGTH_LONG)
+                        .setAction("Да", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                FavoritePoemsAdapter.favoritePoems.remove(PoemAdapter.poems.get(FavoritePoems.favPosition));
+                                for(int i=0;i<FavoritePoems.favIndexes.size();i++) {
+                                    if (FavoritePoems.favPosition == FavoritePoems.favIndexes.get(i)){
+                                        FavoritePoems.favIndexes.remove(i);
+                                        Toast.makeText(getApplicationContext(), "Удалено из избранных", Toast.LENGTH_SHORT).show();
+                                        try {
+                                            FileIO.writeData(getApplicationContext(),openFileOutput(FileIO.file_name,MODE_PRIVATE));
+                                        } catch (FileNotFoundException e) {
+                                            e.printStackTrace();
+                                        }
+                                    }
+                                }
+                                FavoritePoems.favoritePoemsActivity.finish();
+                                startNewActivity(FavoritePoems.class);
+                            }
+                        });
+                snackbar.show();
                 break;
         }
     }

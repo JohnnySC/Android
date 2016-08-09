@@ -10,27 +10,30 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /*
  * Created by Hovhannes Asatryan (https://github.com/JohnnySC) on 05.05.16.
  */
 public class SearchResultsList extends Activity {
-    public static String searchText;
+    String searchText;
     FoundPoemsAdapter foundPoemsAdapter;
     public static ArrayList<Integer> indexes;
     public static int foundPosition;
-    ListView searchListView = null;
+    @BindView(R.id.search_results) ListView searchListView;
 
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.search_results);
 
+        ButterKnife.bind(this);
         foundPosition = 0;
         Poems allPoems = new Poems();
 
-        searchText = MainActivity.searchText.getText().toString();
+        searchText = getIntent().getStringExtra("searchText");
         indexes = new ArrayList<>();
-        searchListView = (ListView)findViewById(R.id.search_results);
         foundPoemsAdapter = new FoundPoemsAdapter();
         searchListView.setAdapter(foundPoemsAdapter);
 

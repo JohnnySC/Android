@@ -116,12 +116,12 @@
         "source": "/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/src/main/res/layout/search_results.xml"
     },
     {
-        "merged": "/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/res/merged/debug/layout/start_screen.xml",
-        "source": "/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/src/main/res/layout/start_screen.xml"
-    },
-    {
         "merged": "/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/res/merged/debug/layout/abc_select_dialog_material.xml",
         "source": "/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_select_dialog_material.xml"
+    },
+    {
+        "merged": "/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/res/merged/debug/layout/start_screen.xml",
+        "source": "/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/src/main/res/layout/start_screen.xml"
     },
     {
         "merged": "/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/res/merged/debug/layout/abc_list_menu_item_icon.xml",

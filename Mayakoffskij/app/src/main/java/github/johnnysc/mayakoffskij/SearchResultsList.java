@@ -6,12 +6,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import de.keyboardsurfer.android.widget.crouton.Crouton;
+import de.keyboardsurfer.android.widget.crouton.Style;
 
 /*
  * Created by Hovhannes Asatryan (https://github.com/JohnnySC) on 05.05.16.
@@ -44,7 +45,7 @@ public class SearchResultsList extends Activity {
             }
         }
         if(FoundPoemsAdapter.foundPoems.size()==0) {
-            Toast.makeText(this, "Нет совпадений", Toast.LENGTH_SHORT).show();
+            Crouton.makeText(MainActivity.activity, "Нет совпадений", Style.ALERT).show();
             finish();
         }
 
@@ -55,6 +56,5 @@ public class SearchResultsList extends Activity {
                 startActivity(intent);
             }
         });
-
     }
 }

@@ -110,6 +110,7 @@ MERGED from [com.android.support:support-v4:23.3.0] /home/johnny/Desktop/program
 MERGED from [com.android.support:support-v4:23.3.0] /home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.3.0/AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:recyclerview-v7:23.3.0] /home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.3.0/AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:support-v4:23.3.0] /home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.3.0/AndroidManifest.xml:20:5-43
+MERGED from [de.keyboardsurfer.android.widget:crouton:1.8.5] /home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/exploded-aar/de.keyboardsurfer.android.widget/crouton/1.8.5/AndroidManifest.xml:22:5-24:41
 MERGED from [com.jakewharton:butterknife:8.2.1] /home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/exploded-aar/com.jakewharton/butterknife/8.2.1/AndroidManifest.xml:5:5-43
 	tools:overrideLibrary
 		ADDED from [com.android.support:appcompat-v7:23.3.0] /home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/AndroidManifest.xml:23:9-75

@@ -5,13 +5,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.io.FileNotFoundException;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import de.keyboardsurfer.android.widget.crouton.Crouton;
+import de.keyboardsurfer.android.widget.crouton.Style;
 
 /*
  * Created by Hovhannes Asatryan (https://github.com/JohnnySC) on 05.05.16.
@@ -39,13 +40,19 @@ public class FoundPoemView extends Activity {
         if(!FavoritePoems.favIndexes.contains(SearchResultsList.foundPosition)) {
             FavoritePoems.favIndexes.add(SearchResultsList.foundPosition);
             FavoritePoemsAdapter.favoritePoems.add(PoemAdapter.poems.get(SearchResultsList.foundPosition));
-            Toast.makeText(getApplicationContext(),"Добавлено в избранное",Toast.LENGTH_SHORT).show();
+            Crouton.makeText(this,"Добавлено в избранное", Style.INFO).show();
             try {
-                FileIO.writeData(getApplicationContext(),openFileOutput(FileIO.file_name,MODE_PRIVATE));
+                FileIO.writeData(this,getApplicationContext(),openFileOutput(FileIO.file_name,MODE_PRIVATE));
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
         }else
-            Toast.makeText(getApplicationContext(),"Уже содержится в избранных",Toast.LENGTH_LONG).show();
+            Crouton.makeText(this,"Уже содержится в избранных",Style.ALERT).show();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Crouton.cancelAllCroutons();
     }
 }

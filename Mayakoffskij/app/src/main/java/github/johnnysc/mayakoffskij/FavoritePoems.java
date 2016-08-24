@@ -8,7 +8,6 @@ import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -16,6 +15,8 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import de.keyboardsurfer.android.widget.crouton.Crouton;
+import de.keyboardsurfer.android.widget.crouton.Style;
 
 /*
  * Created by Hovhannes Asatryan (https://github.com/JohnnySC) on 05.05.16.
@@ -27,12 +28,14 @@ public class FavoritePoems extends Activity {
     public static int favPosition;
     public static int favCode;
     @BindView(R.id.favoritesList) ListView favoritesList;
+    Activity activity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.favorites);
 
+        activity = this;
         ButterKnife.bind(this);
         favoritePoemsActivity = this;
         favPosition = 0;
@@ -64,14 +67,20 @@ public class FavoritePoems extends Activity {
                     @Override public void onClick(DialogInterface dialogInterface, int i) {
                         FavoritePoemsAdapter.favoritePoems = new ArrayList<>();
                         FavoritePoems.favIndexes = new ArrayList<>();
-                        Toast.makeText(getApplicationContext(),"Список избранных очищен",Toast.LENGTH_SHORT).show();
+                        Crouton.makeText(activity,"Список избранных очищен", Style.INFO).show();
                         try {
-                            FileIO.writeData(getApplicationContext(),openFileOutput(FileIO.file_name,MODE_PRIVATE));
+                            FileIO.writeData(activity,getApplicationContext(),openFileOutput(FileIO.file_name,MODE_PRIVATE));
                         } catch (FileNotFoundException e) {
                             e.printStackTrace();
                         }
                         finish();
                     }
                 }).show();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Crouton.cancelAllCroutons();
     }
 }

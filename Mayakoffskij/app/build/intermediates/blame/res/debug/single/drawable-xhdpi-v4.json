@@ -1,11 +1,11 @@
 [
     {
-        "merged": "/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_scrubber_control_to_pressed_mtrl_005.png",
-        "source": "/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/drawable-xhdpi-v4/abc_scrubber_control_to_pressed_mtrl_005.png"
-    },
-    {
         "merged": "/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_ic_star_black_16dp.png",
         "source": "/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/drawable-xhdpi-v4/abc_ic_star_black_16dp.png"
+    },
+    {
+        "merged": "/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_scrubber_control_to_pressed_mtrl_005.png",
+        "source": "/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/drawable-xhdpi-v4/abc_scrubber_control_to_pressed_mtrl_005.png"
     },
     {
         "merged": "/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_list_longpressed_holo.9.png",

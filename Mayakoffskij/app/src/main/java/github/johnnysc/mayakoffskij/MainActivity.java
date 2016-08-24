@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import de.keyboardsurfer.android.widget.crouton.Crouton;
 
 /*
  * Created by Hovhannes Asatryan (https://github.com/JohnnySC) on 05.05.16.
@@ -28,6 +29,7 @@ public class MainActivity extends Activity{
     public static int positionOfItem;
     public static Poems allPoems;
     public static int fontSize;
+    public static Activity activity;
     @BindView(R.id.searchText) EditText searchText;
     @BindView(R.id.poems_list) ListView listView;
     @BindView(R.id.allPoemsCount) TextView allPoemsCount;
@@ -38,6 +40,7 @@ public class MainActivity extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        activity = this;
         ButterKnife.bind(this);
         FavoritePoems.favIndexes = new ArrayList<>();
         positionOfItem = 0;
@@ -61,7 +64,7 @@ public class MainActivity extends Activity{
         );
 
         try {
-            FileIO.readData(getApplicationContext(), openFileInput(FileIO.file_name));
+            FileIO.readData(this,getApplicationContext(), openFileInput(FileIO.file_name));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -121,5 +124,11 @@ public class MainActivity extends Activity{
                         finish();
                     }
                 }).show();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Crouton.cancelAllCroutons();
     }
 }

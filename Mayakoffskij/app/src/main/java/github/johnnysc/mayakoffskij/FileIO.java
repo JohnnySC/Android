@@ -1,7 +1,7 @@
 package github.johnnysc.mayakoffskij;
 
+import android.app.Activity;
 import android.content.Context;
-import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -10,13 +10,16 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
+import de.keyboardsurfer.android.widget.crouton.Crouton;
+import de.keyboardsurfer.android.widget.crouton.Style;
+
 /**
  * Created by Hovhannes Asatryan (https://github.com/JohnnySC) on 05.05.16.
  */
 public class FileIO {
     public static String file_name = "favorite_indexes.txt";
 
-    public static void readData(Context context, FileInputStream inputStream){
+    public static void readData(Activity activity, Context context, FileInputStream inputStream){
         try {
             String value;
             InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
@@ -29,13 +32,13 @@ public class FileIO {
                 FavoritePoems.favIndexes.add(Integer.parseInt(value));
                 FavoritePoemsAdapter.favoritePoems.add(PoemAdapter.poems.get(Integer.parseInt(value)));
             }
-            Toast.makeText(context,"Список избранных загружен",Toast.LENGTH_SHORT).show();
+            Crouton.makeText(activity,"Список избранных загружен", Style.INFO).show();
         } catch (IOException e) {
-            e.printStackTrace();
+            Crouton.makeText(activity,"Ошибка при загрузке",Style.ALERT).show();
         }
     }
 
-    public static void writeData(Context context, FileOutputStream outputStream){
+    public static void writeData(Activity activity, Context context, FileOutputStream outputStream){
         String data = "";
         for(int i=0; i<FavoritePoems.favIndexes.size();i++){
             data= data + Integer.toString(FavoritePoems.favIndexes.get(i))+"\n";
@@ -43,9 +46,9 @@ public class FileIO {
         try{
             outputStream.write(data.getBytes());
             outputStream.close();
-            Toast.makeText(context,"Список избранных сохранен",Toast.LENGTH_SHORT).show();
+            Crouton.makeText(activity,"Список избранных сохранен",Style.INFO).show();
         } catch (IOException e) {
-            e.printStackTrace();
+            Crouton.makeText(activity,"Ошибка при сохранении",Style.ALERT).show();
         }
 
     }

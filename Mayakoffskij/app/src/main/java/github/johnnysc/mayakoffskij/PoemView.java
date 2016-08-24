@@ -7,12 +7,13 @@ import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.io.FileNotFoundException;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import de.keyboardsurfer.android.widget.crouton.Crouton;
+import de.keyboardsurfer.android.widget.crouton.Style;
 
 /*
  * Created by Hovhannes Asatryan (https://github.com/JohnnySC) on 05.05.16.
@@ -23,12 +24,14 @@ public class PoemView extends Activity implements View.OnClickListener {
     @BindView(R.id.previousButton) Button previousButton;
     @BindView(R.id.add_to_favorites) Button addToFavorites;
     @BindView(R.id.remove_from_favorites) Button removeFromFavorites;
+    Activity activity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.poem_view);
 
+        activity = this;
         ButterKnife.bind(this);
         if(FavoritePoems.favCode==1)
             aPoemView.setText(Poems.getPoem(FavoritePoems.favPosition));
@@ -76,14 +79,14 @@ public class PoemView extends Activity implements View.OnClickListener {
                 if(!FavoritePoems.favIndexes.contains(MainActivity.positionOfItem)) {
                     FavoritePoems.favIndexes.add(MainActivity.positionOfItem);
                     FavoritePoemsAdapter.favoritePoems.add(PoemAdapter.poems.get(MainActivity.positionOfItem));
-                    Toast.makeText(getApplicationContext(), "Добавлено в избранное", Toast.LENGTH_SHORT).show();
+                    Crouton.makeText(activity,"Добавлено в избранное", Style.INFO).show();
                     try {
-                        FileIO.writeData(getApplicationContext(),openFileOutput(FileIO.file_name,MODE_PRIVATE));
+                        FileIO.writeData(activity,getApplicationContext(),openFileOutput(FileIO.file_name,MODE_PRIVATE));
                     } catch (FileNotFoundException e) {
                         e.printStackTrace();
                     }
                 }else
-                    Toast.makeText(getApplicationContext(),"Уже содержится в избранных",Toast.LENGTH_LONG).show();
+                    Crouton.makeText(activity,"Уже содержится в избранных",Style.ALERT).show();
                 break;
 
             case R.id.remove_from_favorites:
@@ -95,9 +98,9 @@ public class PoemView extends Activity implements View.OnClickListener {
                                 for(int i=0;i<FavoritePoems.favIndexes.size();i++) {
                                     if (FavoritePoems.favPosition == FavoritePoems.favIndexes.get(i)){
                                         FavoritePoems.favIndexes.remove(i);
-                                        Toast.makeText(getApplicationContext(), "Удалено из избранных", Toast.LENGTH_SHORT).show();
+                                        Crouton.makeText(activity,"Удалено из избранных",Style.INFO).show();
                                         try {
-                                            FileIO.writeData(getApplicationContext(),openFileOutput(FileIO.file_name,MODE_PRIVATE));
+                                            FileIO.writeData(activity, getApplicationContext(),openFileOutput(FileIO.file_name,MODE_PRIVATE));
                                         } catch (FileNotFoundException e) {
                                             e.printStackTrace();
                                         }
@@ -116,5 +119,11 @@ public class PoemView extends Activity implements View.OnClickListener {
         Intent intent = new Intent(PoemView.this, another);
         startActivity(intent);
         finish();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Crouton.cancelAllCroutons();
     }
 }

@@ -36,7 +36,7 @@ public class PoemView extends Activity implements View.OnClickListener {
         if(FavoritePoems.favCode==1)
             aPoemView.setText(Poems.getPoem(FavoritePoems.favPosition));
         else
-        aPoemView.setText(Poems.getPoem(MainActivity.positionOfItem));
+            aPoemView.setText(Poems.getPoem(MainActivity.positionOfItem));
 
         aPoemView.setTextSize(MainActivity.fontSize);
 
@@ -57,7 +57,7 @@ public class PoemView extends Activity implements View.OnClickListener {
         if(MainActivity.positionOfItem>0)
             previousButton.setOnClickListener(this);
         else
-        previousButton.setVisibility(View.GONE);
+            previousButton.setVisibility(View.GONE);
 
         addToFavorites.setOnClickListener(this);
     }

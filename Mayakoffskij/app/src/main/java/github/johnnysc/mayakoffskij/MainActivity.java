@@ -49,7 +49,7 @@ public class MainActivity extends Activity{
         poemAdapter = new PoemAdapter();
         listView.setAdapter(poemAdapter);
         allPoems = new Poems();
-        String text = "Стихи и поэмы: " + Poems.poems.size();
+        String text = "Стихи и поэмы: " + allPoems.getSize();
         allPoemsCount.setText(text);
 
         fontExample.setTextSize(fontSize);

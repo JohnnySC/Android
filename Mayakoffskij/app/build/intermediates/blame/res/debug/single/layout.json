@@ -4,12 +4,12 @@
         "source": "/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/src/main/res/layout/favorites.xml"
     },
     {
-        "merged": "/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/res/merged/debug/layout/design_menu_item_action_area.xml",
-        "source": "/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/exploded-aar/com.android.support/design/23.3.0/res/layout/design_menu_item_action_area.xml"
-    },
-    {
         "merged": "/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/res/merged/debug/layout/design_navigation_item_separator.xml",
         "source": "/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/exploded-aar/com.android.support/design/23.3.0/res/layout/design_navigation_item_separator.xml"
+    },
+    {
+        "merged": "/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/res/merged/debug/layout/design_menu_item_action_area.xml",
+        "source": "/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/exploded-aar/com.android.support/design/23.3.0/res/layout/design_menu_item_action_area.xml"
     },
     {
         "merged": "/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/res/merged/debug/layout/abc_screen_simple_overlay_action_mode.xml",
@@ -56,12 +56,12 @@
         "source": "/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/exploded-aar/com.android.support/design/23.3.0/res/layout/design_layout_tab_text.xml"
     },
     {
-        "merged": "/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/res/merged/debug/layout/select_dialog_multichoice_material.xml",
-        "source": "/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/select_dialog_multichoice_material.xml"
-    },
-    {
         "merged": "/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/res/merged/debug/layout/notification_template_lines.xml",
         "source": "/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/notification_template_lines.xml"
+    },
+    {
+        "merged": "/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/res/merged/debug/layout/select_dialog_multichoice_material.xml",
+        "source": "/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/select_dialog_multichoice_material.xml"
     },
     {
         "merged": "/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/res/merged/debug/layout/poem_list_item.xml",
@@ -100,12 +100,12 @@
         "source": "/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/notification_template_media.xml"
     },
     {
-        "merged": "/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/res/merged/debug/layout/abc_screen_toolbar.xml",
-        "source": "/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_screen_toolbar.xml"
-    },
-    {
         "merged": "/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/res/merged/debug/layout/abc_activity_chooser_view.xml",
         "source": "/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_activity_chooser_view.xml"
+    },
+    {
+        "merged": "/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/res/merged/debug/layout/abc_screen_toolbar.xml",
+        "source": "/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_screen_toolbar.xml"
     },
     {
         "merged": "/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/res/merged/debug/layout/abc_popup_menu_item_layout.xml",

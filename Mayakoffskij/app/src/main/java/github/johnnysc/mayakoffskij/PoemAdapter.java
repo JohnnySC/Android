@@ -156,9 +156,18 @@ public class PoemAdapter extends BaseAdapter {
         poems.add(new PoemRecord("17 апреля","Мы о царском плене забыли"));
         poems.add(new PoemRecord("Наше воскресенье","Еще старухи молятся"));
         poems.add(new PoemRecord("Весенний вопрос","Страшное у меня горе"));
+        poems.add(new PoemRecord("Не для нас поповские праздники","Пусть богу старухи молятся"));
+        poems.add(new PoemRecord("Марш комсомольца","Комсомолец — к ноге нога! \n"));
+        poems.add(new PoemRecord("Схема смеха","Выл ветер и не знал о ком"));
+        poems.add(new PoemRecord("1-е мая","Свети! Вовсю, небес солнцеглазье!"));
+        poems.add(new PoemRecord("1-е мая","Поэты — народ дошлый."));
+        poems.add(new PoemRecord("1-е мая","Мы! Коллектив! Человечество! Масса!"));
+        poems.add(new PoemRecord("Мы — коммуниты","Мы — коммуниты тем"));
+        poems.add(new PoemRecord("",""));
+        poems.add(new PoemRecord("",""));
 
     }
-
+// —
 
     @Override
     public int getCount() {

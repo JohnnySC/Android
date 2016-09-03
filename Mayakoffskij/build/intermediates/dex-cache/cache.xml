@@ -2,6 +2,20 @@
 <items version="2" >
 
     <item
+        jar="/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.3.0/jars/libs/internal_impl-23.3.0.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="4da5a4d697d32497c6f85567a5112e62fdfd0676">
+        <dex dex="/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/pre-dexed/debug/internal_impl-23.3.0_85026fcff70e8b447ce456897f4e05845a144826.jar" />
+    </item>
+    <item
+        jar="/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.3.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="8a034dd16c0dfd75fe86c52c2cd581592acc684a">
+        <dex dex="/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-23.3.0_a3e545910420453ef2ea197d00b170179476eb24.jar" />
+    </item>
+    <item
         jar="/home/johnny/.gradle/caches/modules-2/files-2.1/com.android.support/support-annotations/24.0.0/2943c74db6d4346ab8c6531adac91fa05c137c40/support-annotations-24.0.0.jar"
         jumboMode="true"
         revision="23.0.2"
@@ -14,6 +28,13 @@
         revision="23.0.2"
         sha1="debf30ce0a7560396b6235edef77e447006454c2">
         <dex dex="/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/pre-dexed/debug/com.android.support-recyclerview-v7-23.3.0_a6ffde649c374eb86906e173a0d30d7f8a10633b.jar" />
+    </item>
+    <item
+        jar="/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.3.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="23be6993826b8fd88bbc8d14928bb3b8960d3d4e">
+        <dex dex="/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-23.3.0_e0a90e024749abeaa51ac3239a213229adaf15f4.jar" />
     </item>
     <item
         jar="/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/exploded-aar/com.jakewharton/butterknife/8.2.1/jars/classes.jar"
@@ -37,38 +58,10 @@
         <dex dex="/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/pre-dexed/debug/de.keyboardsurfer.android.widget-crouton-1.8.5_306d3e0db8189c37b64a3ba2159d400b140e468a.jar" />
     </item>
     <item
-        jar="/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="a07a9fe501c2b39aded370cbeef4d708ec36929c">
-        <dex dex="/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/pre-dexed/debug/instant-run-bootstrap_5fd11d36ef4db46719ed78fb7668f55c5cdd2c64.jar" />
-    </item>
-    <item
-        jar="/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.3.0/jars/libs/internal_impl-23.3.0.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="4da5a4d697d32497c6f85567a5112e62fdfd0676">
-        <dex dex="/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/pre-dexed/debug/internal_impl-23.3.0_85026fcff70e8b447ce456897f4e05845a144826.jar" />
-    </item>
-    <item
-        jar="/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.3.0/jars/classes.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="8a034dd16c0dfd75fe86c52c2cd581592acc684a">
-        <dex dex="/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-23.3.0_a3e545910420453ef2ea197d00b170179476eb24.jar" />
-    </item>
-    <item
-        jar="/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.3.0/jars/classes.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="23be6993826b8fd88bbc8d14928bb3b8960d3d4e">
-        <dex dex="/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-23.3.0_e0a90e024749abeaa51ac3239a213229adaf15f4.jar" />
-    </item>
-    <item
         jar="/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         revision="23.0.2"
-        sha1="3e825b556232c9993ea1d058a16d04fc2b1c8392">
+        sha1="8d4332bcefadfcf79c6109de1cd085d24f388ae8">
         <dex dex="/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/pre-dexed/debug/instant-run_d63dcbae631d5ecdacab365dd3ee770a08539153.jar" />
     </item>
     <item
@@ -84,6 +77,13 @@
         revision="23.0.2"
         sha1="a0b5d60246cd9d4f3f2443611b3b4c25265840b5">
         <dex dex="/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-23.3.0_2076847c70f04ff0a50e2639ecbb1836edd2a447.jar" />
+    </item>
+    <item
+        jar="/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="e97ea50e66173e1d28b05d1a4f60b605f77427bd">
+        <dex dex="/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/pre-dexed/debug/instant-run-bootstrap_5fd11d36ef4db46719ed78fb7668f55c5cdd2c64.jar" />
     </item>
     <item
         jar="/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/exploded-aar/com.android.support/design/23.3.0/jars/classes.jar"

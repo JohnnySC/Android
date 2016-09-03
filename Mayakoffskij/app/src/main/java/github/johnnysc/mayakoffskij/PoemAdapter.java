@@ -163,11 +163,18 @@ public class PoemAdapter extends BaseAdapter {
         poems.add(new PoemRecord("1-е мая","Поэты — народ дошлый."));
         poems.add(new PoemRecord("1-е мая","Мы! Коллектив! Человечество! Масса!"));
         poems.add(new PoemRecord("Мы — коммуниты","Мы — коммуниты тем"));
-        poems.add(new PoemRecord("",""));
-        poems.add(new PoemRecord("",""));
-
+        poems.add(new PoemRecord("Рабочий корреспондент","Пять лет рабочие глотки поют"));
+        poems.add(new PoemRecord("Универсальный ответ","Мне надоели ноты"));
+        poems.add(new PoemRecord("Воровский","Сегодня, пролетариат, гром голосов раскуй"));
+        poems.add(new PoemRecord("Это значит вот что!","Что значит, что г-н Керзон"));
+        poems.add(new PoemRecord("Баку","Баку. Город ветра."));
+        poems.add(new PoemRecord("...товарищ Чичерин и тралеры отдает и прочее.","Но поэту незачем дипломатический такт."));
+        poems.add(new PoemRecord("Разве у вас не чешутся обе лопатки?","Если с неба радуга свешивается"));
+        poems.add(new PoemRecord("О том как у Керзона с обедом разрасталась аппетитов зона","Керзон разразился ультиматумом."));
+        poems.add(new PoemRecord("Смыкай ряды","Чтоб крепла трудовая Русь"));
+        poems.add(new PoemRecord("Горб","Арбат толкучкою давил"));
+        poems.add(new PoemRecord("Коминтерн","Глядя в грядущую грозу"));
     }
-// —
 
     @Override
     public int getCount() {

@@ -100,12 +100,12 @@
         "source": "/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/notification_template_media.xml"
     },
     {
-        "merged": "/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/res/merged/debug/layout/abc_activity_chooser_view.xml",
-        "source": "/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_activity_chooser_view.xml"
-    },
-    {
         "merged": "/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/res/merged/debug/layout/abc_screen_toolbar.xml",
         "source": "/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_screen_toolbar.xml"
+    },
+    {
+        "merged": "/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/res/merged/debug/layout/abc_activity_chooser_view.xml",
+        "source": "/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_activity_chooser_view.xml"
     },
     {
         "merged": "/home/johnny/Desktop/programming/AndroidStudioProjects/Mayakoffskij/app/build/intermediates/res/merged/debug/layout/abc_popup_menu_item_layout.xml",

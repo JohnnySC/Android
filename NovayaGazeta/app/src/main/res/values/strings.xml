@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">NovayaGazeta</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="main">Новая Газета ру - Главная</string>
+    <string name="politics_in_russia">Политика в России</string>
+    <string name="image_of_article">image of article</string>
+    <string name="politics_in_the_world">Политика в мире</string>
+    <string name="inquests">Расследования</string>
+    <string name="columns">Колумнисты</string>
+    <string name="economy">Экономика</string>
+    <string name="comments">Комментарии</string>
+    <string name="society">Общество</string>
+    <string name="arts">Культура</string>
+    <string name="sports">Спорт</string>
+    <string name="header">Новая Газета</string>
+    <string name="www_novayagazeta_ru">www.novayagazeta.ru</string>
+</resources>

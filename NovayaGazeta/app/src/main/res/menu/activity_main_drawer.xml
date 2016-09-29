@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:icon="@drawable/ic_menu_info"
+        android:id="@+id/main_info"
+        android:title="@string/main">
+    </item>
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/politics_in_russia"
+            android:icon="@drawable/ic_item"
+            android:title="@string/politics_in_russia" />
+        <item
+            android:id="@+id/politics_in_the_world"
+            android:icon="@drawable/ic_item"
+            android:title="@string/politics_in_the_world" />
+        <item
+            android:id="@+id/inquests"
+            android:icon="@drawable/ic_item"
+            android:title="@string/inquests" />
+        <item
+            android:id="@+id/columns"
+            android:icon="@drawable/ic_item"
+            android:title="@string/columns" />
+        <item
+            android:id="@+id/economy"
+            android:icon="@drawable/ic_item"
+            android:title="@string/economy" />
+        <item
+            android:id="@+id/comments"
+            android:icon="@drawable/ic_item"
+            android:title="@string/comments" />
+        <item
+            android:id="@+id/society"
+            android:icon="@drawable/ic_item"
+            android:title="@string/society" />
+        <item
+            android:id="@+id/arts"
+            android:icon="@drawable/ic_item"
+            android:title="@string/arts" />
+        <item
+            android:id="@+id/sport"
+            android:icon="@drawable/ic_item"
+            android:title="@string/sports" />
+    </group>
+
+</menu>

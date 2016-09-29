@@ -1,0 +1,4 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <item name="ic_menu_info" type="drawable">@android:drawable/ic_menu_info_details</item>
+    <item name="ic_item" type="drawable">@android:drawable/ic_input_get</item>
+</resources>

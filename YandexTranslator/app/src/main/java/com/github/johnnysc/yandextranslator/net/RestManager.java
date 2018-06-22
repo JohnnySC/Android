@@ -1,4 +1,4 @@
-package com.github.johnnysc.yandextranslator;
+package com.github.johnnysc.yandextranslator.net;
 
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;

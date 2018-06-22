@@ -4,6 +4,9 @@ import android.support.annotation.StringRes;
 
 import com.arellomobile.mvp.MvpView;
 
+/**
+ * @author Asatryan on 22.06.18
+ */
 public interface MainView extends MvpView {
 
     void showMessage(@StringRes int messsageResId);

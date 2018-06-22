@@ -2,7 +2,6 @@ package com.github.johnnysc.yandextranslator;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -14,7 +13,7 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String KEY = "";//get your key and place it here
+    private static final String KEY = "trnsl.1.1.20170426T135336Z.48d648f8f882d563.d40bb959b17363f2bee9e4a816f36ca997ce55c2";//get your key and place it here
     private static final String LANG = "en-ru";
     private static final String FORMAT = "plain";
     private static final String OPTIONS = "1";
@@ -31,14 +30,11 @@ public class MainActivity extends AppCompatActivity {
         manager = new RestManager();
         mEditText = (EditText) findViewById(R.id.input_edit_text);
         mTextView = (TextView) findViewById(R.id.result_text_view);
-        mButton = (Button) findViewById(R.id.button);
+        mButton = (Button) findViewById(R.id.translate_button);
 
-        mButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mEditText.getText().toString().length() > 0) {
-                    getTranslatedText(mEditText.getText().toString());
-                }
+        mButton.setOnClickListener(v -> {
+            if (mEditText.getText().toString().length() > 0) {
+                getTranslatedText(mEditText.getText().toString());
             }
         });
 

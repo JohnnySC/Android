@@ -1,11 +1,8 @@
 package com.github.johnnysc.yandextranslator;
 
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
-
-/**
- * @author Asatryan on 26.04.17.
- */
 
 public class RestManager {
 
@@ -18,6 +15,7 @@ public class RestManager {
             Retrofit retrofit = new Retrofit.Builder()
                     .baseUrl(BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create())
+                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .build();
 
             mService = retrofit.create(TranslatorService.class);

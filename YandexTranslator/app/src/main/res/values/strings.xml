@@ -2,4 +2,5 @@
     <string name="app_name">YandexTranslator</string>
     <string name="input_hint">type the word you want to translate</string>
     <string name="translate">translate</string>
+    <string name="error">Something went wrong</string>
 </resources>

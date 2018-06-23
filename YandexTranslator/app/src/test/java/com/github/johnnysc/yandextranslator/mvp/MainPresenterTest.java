@@ -1,9 +1,7 @@
 package com.github.johnnysc.yandextranslator.mvp;
 
-
 import com.github.johnnysc.yandextranslator.R;
 import com.github.johnnysc.yandextranslator.bean.TranslationBean;
-import com.github.johnnysc.yandextranslator.net.RestManager;
 import com.github.johnnysc.yandextranslator.net.TranslatorService;
 import com.github.johnnysc.yandextranslator.rule.RxImmediateSchedulerRule;
 
@@ -26,6 +24,9 @@ import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+/**
+ * @author Asatryan on 23.06.18
+ */
 @RunWith(MockitoJUnitRunner.class)
 public class MainPresenterTest {
 
@@ -39,9 +40,6 @@ public class MainPresenterTest {
     MainView$$State mMainView;
 
     @Mock
-    RestManager mRestManager;
-
-    @Mock
     TranslatorService mTranslatorService;
 
     private MainPresenter mPresenter;
@@ -50,9 +48,8 @@ public class MainPresenterTest {
     public void setUp() {
         MockitoAnnotations.initMocks(this);
         mPresenter = new MainPresenter();
-        mPresenter.setRestManager(mRestManager);
         mPresenter.setViewState(mMainView);
-        when(mRestManager.getService()).thenReturn(mTranslatorService);
+        mPresenter.setTranslatorService(mTranslatorService);
     }
 
     public MainPresenterTest() {

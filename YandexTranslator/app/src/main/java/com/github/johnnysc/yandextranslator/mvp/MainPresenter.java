@@ -3,7 +3,7 @@ package com.github.johnnysc.yandextranslator.mvp;
 import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
 import com.github.johnnysc.yandextranslator.R;
-import com.github.johnnysc.yandextranslator.net.RestManager;
+import com.github.johnnysc.yandextranslator.net.TranslatorService;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -20,20 +20,20 @@ public class MainPresenter extends MvpPresenter<MainView> {
     private static final String FORMAT = "plain";
     private static final String OPTIONS = "1";
 
-    private RestManager mRestManager;
+    private TranslatorService mTranslatorService;
     private Disposable mDisposable;
 
     MainPresenter() {
     }
 
-    public void setRestManager(RestManager restManager) {
-        mRestManager = restManager;
+    public void setTranslatorService(TranslatorService translatorService) {
+        mTranslatorService = translatorService;
     }
 
     public void translate(String input) {
         if (input.isEmpty()) return;
         getViewState().setButtonEnabled(false);
-        mDisposable = mRestManager.getService().getText(KEY, input, LANG, FORMAT, OPTIONS)
+        mDisposable = mTranslatorService.getText(KEY, input, LANG, FORMAT, OPTIONS)
                 .subscribeOn(Schedulers.io())
                 .filter(translationBean -> !translationBean.getText().isEmpty() && !translationBean.getText().get(0).isEmpty())
                 .map(translationBean -> translationBean.getText().get(0))

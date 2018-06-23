@@ -9,6 +9,7 @@ import android.widget.Toast;
 import com.arellomobile.mvp.MvpActivity;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.github.johnnysc.yandextranslator.R;
+import com.github.johnnysc.yandextranslator.net.RestManager;
 
 public class MainActivity extends MvpActivity implements MainView {
 
@@ -23,6 +24,7 @@ public class MainActivity extends MvpActivity implements MainView {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mMainPresenter.setRestManager(new RestManager());
         mEditText = (EditText) findViewById(R.id.input_edit_text);
         mTextView = (TextView) findViewById(R.id.result_text_view);
         mButton = (Button) findViewById(R.id.translate_button);

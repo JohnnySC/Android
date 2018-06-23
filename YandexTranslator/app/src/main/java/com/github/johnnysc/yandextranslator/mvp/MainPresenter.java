@@ -20,11 +20,14 @@ public class MainPresenter extends MvpPresenter<MainView> {
     private static final String FORMAT = "plain";
     private static final String OPTIONS = "1";
 
-    private final RestManager mRestManager;
+    private RestManager mRestManager;
     private Disposable mDisposable;
 
     MainPresenter() {
-        mRestManager = new RestManager();
+    }
+
+    public void setRestManager(RestManager restManager) {
+        mRestManager = restManager;
     }
 
     public void translate(String input) {

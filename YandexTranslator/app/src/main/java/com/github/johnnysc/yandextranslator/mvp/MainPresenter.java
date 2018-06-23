@@ -28,13 +28,16 @@ public class MainPresenter extends MvpPresenter<MainView> {
     }
 
     public void translate(String input) {
+        if (input.isEmpty()) return;
         getViewState().setButtonEnabled(false);
         mDisposable = mRestManager.getService().getText(KEY, input, LANG, FORMAT, OPTIONS)
                 .subscribeOn(Schedulers.io())
+                .filter(translationBean -> !translationBean.getText().isEmpty() && !translationBean.getText().get(0).isEmpty())
+                .map(translationBean -> translationBean.getText().get(0))
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(translatedText -> {
                             getViewState().setButtonEnabled(true);
-                            getViewState().showTranslation(translatedText.getText().get(0));
+                            getViewState().showTranslation(translatedText);
                         },
                         throwable -> {
                             getViewState().setButtonEnabled(true);

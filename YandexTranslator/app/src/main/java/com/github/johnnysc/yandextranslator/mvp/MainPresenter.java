@@ -34,8 +34,6 @@ public class MainPresenter extends MvpPresenter<MainView> {
         getViewState().setButtonEnabled(false);
         mDisposable = mMainInteractor.getTranslation(KEY, input, LANG, FORMAT, OPTIONS)
                 .subscribeOn(Schedulers.io())
-                .filter(translationBean -> !translationBean.getText().isEmpty() && !translationBean.getText().get(0).isEmpty())
-                .map(translationBean -> translationBean.getText().get(0))
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(translatedText -> {
                             getViewState().setButtonEnabled(true);

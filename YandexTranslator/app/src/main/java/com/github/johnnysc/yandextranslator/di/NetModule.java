@@ -1,7 +1,9 @@
 package com.github.johnnysc.yandextranslator.di;
 
 import com.github.johnnysc.yandextranslator.mvp.DefaultMainInteractor;
+import com.github.johnnysc.yandextranslator.mvp.DefaultMainRepository;
 import com.github.johnnysc.yandextranslator.mvp.MainInteractor;
+import com.github.johnnysc.yandextranslator.mvp.MainRepository;
 import com.github.johnnysc.yandextranslator.net.TranslatorService;
 
 import javax.inject.Singleton;
@@ -42,7 +44,13 @@ public class NetModule {
 
     @Provides
     @Singleton
-    MainInteractor provideMainInteractor(TranslatorService service) {
-        return new DefaultMainInteractor(service);
+    MainInteractor provideMainInteractor(MainRepository repository) {
+        return new DefaultMainInteractor(repository);
+    }
+
+    @Provides
+    @Singleton
+    MainRepository provideMainRepository(TranslatorService service) {
+        return new DefaultMainRepository(service);
     }
 }

@@ -1,23 +1,22 @@
 package com.github.johnnysc.yandextranslator.mvp;
 
-import com.github.johnnysc.yandextranslator.bean.TranslationBean;
-import com.github.johnnysc.yandextranslator.net.TranslatorService;
-
-import io.reactivex.Single;
+import io.reactivex.Maybe;
 
 /**
  * @author Asatryan on 24.06.18
  */
 public class DefaultMainInteractor implements MainInteractor {
 
-    private final TranslatorService mTranslatorService;
+    private final MainRepository mMainRepository;
 
-    public DefaultMainInteractor(TranslatorService translatorService) {
-        mTranslatorService = translatorService;
+    public DefaultMainInteractor(MainRepository mainRepository) {
+        mMainRepository = mainRepository;
     }
 
     @Override
-    public Single<TranslationBean> getTranslation(String key, String text, String lang, String format, String options) {
-        return mTranslatorService.getText(key, text, lang, format, options);
+    public Maybe<String> getTranslation(String key, String text, String lang, String format, String options) {
+        return mMainRepository.getTranslation(key, text, lang, format, options)
+                .filter(translationBean -> !translationBean.getText().isEmpty() && !translationBean.getText().get(0).isEmpty())
+                .map(translationBean -> translationBean.getText().get(0));
     }
 }

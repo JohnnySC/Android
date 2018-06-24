@@ -1,7 +1,6 @@
 package com.github.johnnysc.yandextranslator.mvp;
 
 import com.github.johnnysc.yandextranslator.R;
-import com.github.johnnysc.yandextranslator.bean.TranslationBean;
 import com.github.johnnysc.yandextranslator.rule.RxImmediateSchedulerRule;
 
 import org.junit.Before;
@@ -12,9 +11,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import java.util.Collections;
-
-import io.reactivex.Single;
+import io.reactivex.Maybe;
 
 import static org.mockito.ArgumentMatchers.anyBoolean;
 import static org.mockito.ArgumentMatchers.anyInt;
@@ -81,11 +78,11 @@ public class MainPresenterTest {
         verify(mMainView, never()).showTranslation(anyString());
     }
 
-    private Single<TranslationBean> getError() {
-        return Single.error(new RuntimeException());
+    private Maybe<String> getError() {
+        return Maybe.error(new RuntimeException());
     }
 
-    private Single<TranslationBean> getTranslationBean() {
-        return Single.just(new TranslationBean(200, "ru", Collections.singletonList(RU_MOCK)));
+    private Maybe<String> getTranslationBean() {
+        return Maybe.just(RU_MOCK);
     }
 }

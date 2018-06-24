@@ -18,6 +18,18 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    productFlavors {
+
+        flavorDimensions "version"
+        mocks {
+            dimension "version"
+            applicationIdSuffix ".mocks"
+            versionNameSuffix "-mocks"
+        }
+        base {
+            dimension "version"
+        }
+    }
     compileOptions {
         targetCompatibility 1.8
         sourceCompatibility 1.8

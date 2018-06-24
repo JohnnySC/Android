@@ -8,6 +8,7 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -15,7 +16,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 /**
  * @author Asatryan on 23.06.18
  */
-@Module
+@Module(includes = OkHttpClientModule.class)
 public class NetModule {
 
     private final String mBaseUrl;
@@ -26,11 +27,12 @@ public class NetModule {
 
     @Provides
     @Singleton
-    Retrofit provideRetrofit() {
+    Retrofit provideRetrofit(OkHttpClient client) {
         return new Retrofit.Builder()
                 .baseUrl(mBaseUrl)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .client(client)
                 .build();
     }
 

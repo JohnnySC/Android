@@ -2,10 +2,12 @@ package com.github.johnnysc.yandextranslator.di;
 
 import android.app.Application;
 
+import timber.log.Timber;
+
 /**
  * @author Asatryan on 23.06.18
  */
-public class TranslatorApplication extends Application{
+public class TranslatorApplication extends Application {
 
     private static final String BASE_URL = "https://translate.yandex.net/";
     private static NetComponent sNetComponent;
@@ -13,8 +15,9 @@ public class TranslatorApplication extends Application{
     @Override
     public void onCreate() {
         super.onCreate();
+        Timber.plant(new Timber.DebugTree());
         sNetComponent = DaggerNetComponent.builder()
-                .appModule(new AppModule(this))
+                .contextModule(new ContextModule(this))
                 .netModule(new NetModule(BASE_URL))
                 .build();
     }

@@ -10,7 +10,7 @@ import dagger.Component;
  * @author Asatryan on 23.06.18
  */
 @Singleton
-@Component(modules = {AppModule.class, NetModule.class})
+@Component(modules = {NetModule.class, OkHttpClientModule.class})
 public interface NetComponent {
 
     void inject(MainActivity activity);

@@ -8,9 +8,9 @@ import android.widget.Toast;
 
 import com.arellomobile.mvp.MvpActivity;
 import com.arellomobile.mvp.presenter.InjectPresenter;
+import com.arellomobile.mvp.presenter.ProvidePresenter;
 import com.github.johnnysc.yandextranslator.R;
 import com.github.johnnysc.yandextranslator.di.TranslatorApplication;
-import com.github.johnnysc.yandextranslator.net.TranslatorService;
 
 import javax.inject.Inject;
 
@@ -19,11 +19,9 @@ import javax.inject.Inject;
  */
 public class MainActivity extends MvpActivity implements MainView {
 
+    @Inject
     @InjectPresenter
     MainPresenter mMainPresenter;
-
-    @Inject
-    TranslatorService mTranslatorService;
 
     private EditText mEditText;
     private TextView mTextView;
@@ -38,7 +36,6 @@ public class MainActivity extends MvpActivity implements MainView {
         mTextView = findViewById(R.id.result_text_view);
         mButton = findViewById(R.id.translate_button);
 
-        mMainPresenter.setTranslatorService(mTranslatorService);
         mButton.setOnClickListener(v -> mMainPresenter.translate(mEditText.getText().toString()));
     }
 
@@ -55,5 +52,10 @@ public class MainActivity extends MvpActivity implements MainView {
     @Override
     public void setButtonEnabled(boolean enabled) {
         mButton.setEnabled(enabled);
+    }
+
+    @ProvidePresenter
+    MainPresenter getMainPresenter() {
+        return mMainPresenter;
     }
 }

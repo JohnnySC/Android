@@ -2,7 +2,6 @@ package com.github.johnnysc.yandextranslator.mvp;
 
 import com.github.johnnysc.yandextranslator.R;
 import com.github.johnnysc.yandextranslator.bean.TranslationBean;
-import com.github.johnnysc.yandextranslator.net.TranslatorService;
 import com.github.johnnysc.yandextranslator.rule.RxImmediateSchedulerRule;
 
 import org.junit.Before;
@@ -40,16 +39,15 @@ public class MainPresenterTest {
     MainView$$State mMainView;
 
     @Mock
-    TranslatorService mTranslatorService;
+    MainInteractor mMainInteractor;
 
     private MainPresenter mPresenter;
 
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
-        mPresenter = new MainPresenter();
+        mPresenter = new MainPresenter(mMainInteractor);
         mPresenter.setViewState(mMainView);
-        mPresenter.setTranslatorService(mTranslatorService);
     }
 
     public MainPresenterTest() {
@@ -57,7 +55,7 @@ public class MainPresenterTest {
 
     @Test
     public void testTranslatePositive() {
-        when(mTranslatorService.getText(anyString(), anyString(), anyString(), anyString(), anyString())).thenReturn(getTranslationBean());
+        when(mMainInteractor.getTranslation(anyString(), anyString(), anyString(), anyString(), anyString())).thenReturn(getTranslationBean());
         mPresenter.translate(ENG_MOCK);
         verify(mMainView).setButtonEnabled(false);
         verify(mMainView).setButtonEnabled(true);
@@ -67,7 +65,7 @@ public class MainPresenterTest {
 
     @Test
     public void testTranslateError() {
-        when(mTranslatorService.getText(anyString(), anyString(), anyString(), anyString(), anyString())).thenReturn(getError());
+        when(mMainInteractor.getTranslation(anyString(), anyString(), anyString(), anyString(), anyString())).thenReturn(getError());
         mPresenter.translate(ENG_MOCK);
         verify(mMainView).setButtonEnabled(false);
         verify(mMainView).setButtonEnabled(true);

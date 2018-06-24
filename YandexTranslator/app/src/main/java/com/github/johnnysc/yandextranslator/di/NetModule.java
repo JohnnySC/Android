@@ -1,5 +1,7 @@
 package com.github.johnnysc.yandextranslator.di;
 
+import com.github.johnnysc.yandextranslator.mvp.DefaultMainInteractor;
+import com.github.johnnysc.yandextranslator.mvp.MainInteractor;
 import com.github.johnnysc.yandextranslator.net.TranslatorService;
 
 import javax.inject.Singleton;
@@ -36,5 +38,11 @@ public class NetModule {
     @Singleton
     TranslatorService provideTranslatorService(Retrofit retrofit) {
         return retrofit.create(TranslatorService.class);
+    }
+
+    @Provides
+    @Singleton
+    MainInteractor provideMainInteractor(TranslatorService service) {
+        return new DefaultMainInteractor(service);
     }
 }

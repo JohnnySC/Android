@@ -1,11 +1,9 @@
 package com.github.johnnysc.yandextranslator.di;
 
-import com.github.johnnysc.yandextranslator.BuildConfig;
 import com.github.johnnysc.yandextranslator.mvp.DefaultMainInteractor;
 import com.github.johnnysc.yandextranslator.mvp.DefaultMainRepository;
 import com.github.johnnysc.yandextranslator.mvp.MainInteractor;
 import com.github.johnnysc.yandextranslator.mvp.MainRepository;
-import com.github.johnnysc.yandextranslator.mvp.MocksMainRepository;
 import com.github.johnnysc.yandextranslator.net.TranslatorService;
 
 import javax.inject.Singleton;
@@ -53,8 +51,6 @@ public class NetModule {
     @Provides
     @Singleton
     MainRepository provideMainRepository(TranslatorService service) {
-        return BuildConfig.FLAVOR.contains("mocks")
-                ? new MocksMainRepository()
-                : new DefaultMainRepository(service);
+        return new DefaultMainRepository(service);
     }
 }

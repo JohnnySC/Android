@@ -1,6 +1,7 @@
 package com.github.johnnysc.yandextranslator.mvp;
 
 import com.github.johnnysc.yandextranslator.bean.TranslationBean;
+import com.github.johnnysc.yandextranslator.net.TranslatorService;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -11,7 +12,7 @@ import io.reactivex.Single;
 /**
  * @author Asatryan on 24.06.18
  */
-public class MocksMainRepository implements MainRepository {
+public class DefaultMainRepository implements MainRepository {
 
     public static final Map<String, String> MOCKS = new HashMap<>();
 
@@ -21,6 +22,10 @@ public class MocksMainRepository implements MainRepository {
         MOCKS.put("bad", "плохо");
         MOCKS.put("thing", "вещь");
         MOCKS.put("not found", "не найдено");
+    }
+
+    public DefaultMainRepository(TranslatorService translatorService) {
+        //this is mock flavor case
     }
 
     @Override

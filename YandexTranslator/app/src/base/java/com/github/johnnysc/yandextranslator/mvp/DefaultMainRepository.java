@@ -3,6 +3,9 @@ package com.github.johnnysc.yandextranslator.mvp;
 import com.github.johnnysc.yandextranslator.bean.TranslationBean;
 import com.github.johnnysc.yandextranslator.net.TranslatorService;
 
+import java.util.Collections;
+import java.util.Map;
+
 import io.reactivex.Single;
 
 /**
@@ -10,6 +13,7 @@ import io.reactivex.Single;
  */
 public class DefaultMainRepository implements MainRepository {
 
+    public static final Map<String, String> MOCKS = Collections.emptyMap();
     private final TranslatorService mTranslatorService;
 
     public DefaultMainRepository(TranslatorService translatorService) {

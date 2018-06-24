@@ -34,7 +34,10 @@ public class MainActivityTest {
 
     @Test
     public void testPositiveScenario() {
-        for (Map.Entry<String, String> entry : MocksMainRepository.MOCKS.entrySet()) {
+        if (DefaultMainRepository.MOCKS.isEmpty()) {
+            throw new IllegalStateException("Choose mocks flavor to run the test");
+        }
+        for (Map.Entry<String, String> entry : DefaultMainRepository.MOCKS.entrySet()) {
             onView(withId(R.id.input_edit_text)).perform(clearText(), typeText(entry.getKey()));
             onView(withId(R.id.translate_button)).perform(click());
             onView(withId(R.id.result_text_view)).check(matches(withText(entry.getValue())));

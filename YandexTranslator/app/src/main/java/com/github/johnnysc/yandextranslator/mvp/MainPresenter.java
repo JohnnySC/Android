@@ -48,6 +48,8 @@ public class MainPresenter extends MvpPresenter<MainView> {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        mDisposable.dispose();
+        if (mDisposable != null) {
+            mDisposable.dispose();
+        }
     }
 }

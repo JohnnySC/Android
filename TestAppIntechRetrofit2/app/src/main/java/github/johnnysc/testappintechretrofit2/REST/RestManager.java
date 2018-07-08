@@ -9,8 +9,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RestManager {
     private SongService songService;
 
-    public SongService getSongService(){
-        if(songService==null){
+    public SongService getSongService() {
+        if (songService == null) {
             Retrofit retrofit = new Retrofit.Builder()
                     .baseUrl("https://itunes.apple.com/")
                     .addConverterFactory(GsonConverterFactory.create())

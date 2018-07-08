@@ -1,5 +1,6 @@
 package github.johnnysc.testappintechretrofit2.Adapter;
 
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,34 +12,33 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import github.johnnysc.testappintechretrofit2.R;
-import github.johnnysc.testappintechretrofit2.REST.Song;
+import github.johnnysc.testappintechretrofit2.main.di.bean.Song;
 
 /**
  * Created by Hovhannes Asatryan on 12.08.16.
  */
-public class SongRecycleAdapter extends RecyclerView.Adapter<SongRecycleAdapter.Holder>{
-    private List<Song> songList;
-    private final SongClickListener songClickListener;
+public class SongRecycleAdapter extends RecyclerView.Adapter<SongRecycleAdapter.Holder> {
 
-    public SongRecycleAdapter(List<Song> songList, SongClickListener songClickListener) {
-        this.songList = songList;
-        this.songClickListener = songClickListener;
+    private final SongClickListener mSongClickListener;
+    private List<Song> mSongList;
+
+    public SongRecycleAdapter(SongClickListener songClickListener) {
+        mSongClickListener = songClickListener;
+    }
+
+    @NonNull
+    @Override
+    public SongRecycleAdapter.Holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.song_item, parent, false);
+        return new Holder(view);
     }
 
     @Override
-    public SongRecycleAdapter.Holder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View row = LayoutInflater.from(parent.getContext()).inflate(R.layout.song_item,parent,false);
-        return new Holder(row);
-    }
-
-    @Override
-    public void onBindViewHolder(SongRecycleAdapter.Holder holder, int position) {
-        Song currentSong = songList.get(position);
+    public void onBindViewHolder(@NonNull SongRecycleAdapter.Holder holder, int position) {
+        Song currentSong = mSongList.get(position);
         Picasso.with(holder.itemView.getContext())
-                .load(currentSong.getArtWorkUrl100())
+                .load(currentSong.getCoverUrl())
                 .error(R.drawable.ic_error)
                 .placeholder(R.drawable.progress_animation)
                 .into(holder.imageView);
@@ -48,30 +48,38 @@ public class SongRecycleAdapter extends RecyclerView.Adapter<SongRecycleAdapter.
 
     @Override
     public int getItemCount() {
-        return songList.size();
+        return mSongList == null ? 0 : mSongList.size();
     }
 
-    public Song getSelectedSong(int position){
-        return songList.get(position);
+    public Song getSelectedSong(int position) {
+        return mSongList.get(position);
+    }
+
+    public void setData(@NonNull List<Song> data) {
+        mSongList = data;
+        notifyDataSetChanged();
     }
 
     public class Holder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        @BindView(R.id.albumCover_view) ImageView imageView;
-        @BindView(R.id.songName_view) TextView songName;
-        @BindView(R.id.artistName_view) TextView artistName;
-        public Holder(View itemView) {
+        ImageView imageView;
+        TextView songName;
+        TextView artistName;
+
+        Holder(View itemView) {
             super(itemView);
-            ButterKnife.bind(this,itemView);
             itemView.setOnClickListener(this);
+            imageView = itemView.findViewById(R.id.cover_image_view);
+            songName = itemView.findViewById(R.id.track_text_view);
+            artistName = itemView.findViewById(R.id.artist_text_view);
         }
 
         @Override
         public void onClick(View view) {
-            songClickListener.onClick(getLayoutPosition());
+            mSongClickListener.onClick(getLayoutPosition());
         }
     }
 
-    public interface SongClickListener{
+    public interface SongClickListener {
         void onClick(int position);
     }
 }

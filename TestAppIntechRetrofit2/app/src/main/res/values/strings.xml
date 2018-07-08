@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">TestAppIntechRetrofit2</string>
     <string name="hint">artist name or track name</string>
+    <string name="pause">Pause</string>
+    <string name="play">Play</string>
+    <string name="cover_image_view">cover image view</string>
 </resources>

@@ -1,4 +1,4 @@
-package github.johnnysc.testappintechretrofit2.Adapter;
+package github.johnnysc.testappintechretrofit2.main.presentation;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -13,7 +13,7 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 import github.johnnysc.testappintechretrofit2.R;
-import github.johnnysc.testappintechretrofit2.main.di.bean.Song;
+import github.johnnysc.testappintechretrofit2.main.data.bean.Song;
 
 /**
  * Created by Hovhannes Asatryan on 12.08.16.

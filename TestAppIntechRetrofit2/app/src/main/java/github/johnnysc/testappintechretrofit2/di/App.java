@@ -2,8 +2,8 @@ package github.johnnysc.testappintechretrofit2.di;
 
 import android.app.Application;
 
+import github.johnnysc.testappintechretrofit2.main.data.bean.Song;
 import github.johnnysc.testappintechretrofit2.main.di.MainActivityComponent;
-import github.johnnysc.testappintechretrofit2.main.di.bean.Song;
 import github.johnnysc.testappintechretrofit2.player.di.PlayerActivityComponent;
 import github.johnnysc.testappintechretrofit2.player.di.PlayerModule;
 
@@ -18,6 +18,7 @@ public class App extends Application {
     private AppComponent mAppComponent;
     private MainActivityComponent mMainActivityComponent;
     private PlayerActivityComponent mPlayerComponent;
+    private Song mSong;
 
     @Override
     public void onCreate() {
@@ -42,6 +43,9 @@ public class App extends Application {
     }
 
     public MainActivityComponent getMainActivityComponent() {
+        if (mMainActivityComponent == null) {
+            createMainActivityComponent();
+        }
         return mMainActivityComponent;
     }
 
@@ -50,10 +54,14 @@ public class App extends Application {
     }
 
     public void createPlayerActivityComponent(Song song) {
+        mSong = song;
         mPlayerComponent = mMainActivityComponent.createPlayerActivityComponent(new PlayerModule(song));
     }
 
     public PlayerActivityComponent getPlayerComponent() {
+        if (mPlayerComponent == null) {
+            createPlayerActivityComponent(mSong);
+        }
         return mPlayerComponent;
     }
 

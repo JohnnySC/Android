@@ -2,7 +2,7 @@ package github.johnnysc.testappintechretrofit2.player.di;
 
 import dagger.Module;
 import dagger.Provides;
-import github.johnnysc.testappintechretrofit2.main.di.bean.Song;
+import github.johnnysc.testappintechretrofit2.main.data.bean.Song;
 
 /**
  * @author Asatryan on 08.07.18

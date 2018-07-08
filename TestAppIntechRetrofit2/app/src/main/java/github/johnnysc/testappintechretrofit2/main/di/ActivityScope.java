@@ -1,4 +1,4 @@
-package github.johnnysc.testappintechretrofit2.di;
+package github.johnnysc.testappintechretrofit2.main.di;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

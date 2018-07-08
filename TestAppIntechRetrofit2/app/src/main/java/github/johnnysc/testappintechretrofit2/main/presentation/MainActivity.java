@@ -1,6 +1,5 @@
 package github.johnnysc.testappintechretrofit2.main.presentation;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.widget.GridLayoutManager;
@@ -16,16 +15,15 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import github.johnnysc.testappintechretrofit2.Adapter.SongRecycleAdapter;
 import github.johnnysc.testappintechretrofit2.R;
-import github.johnnysc.testappintechretrofit2.UI.PlayerActivity;
 import github.johnnysc.testappintechretrofit2.di.App;
-import github.johnnysc.testappintechretrofit2.main.di.bean.Song;
+import github.johnnysc.testappintechretrofit2.main.data.bean.Song;
+import github.johnnysc.testappintechretrofit2.player.presentation.PlayerActivity;
 
 /**
  * @author Hovhannes Asatryan on 08.07.2018
  */
-public class MainActivity extends MvpActivity implements SongRecycleAdapter.SongClickListener, MainView {
+public class MainActivity extends MvpActivity implements MainView, SongRecycleAdapter.SongClickListener {
 
     private RecyclerView mRecyclerView;
     private SongRecycleAdapter mSongRecycleAdapter;
@@ -43,6 +41,24 @@ public class MainActivity extends MvpActivity implements SongRecycleAdapter.Song
         initUi();
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        App.getInstance().clearMainActivityComponent();
+    }
+
+    @Override
+    public void onClick(int position) {
+        App.getInstance().createPlayerActivityComponent(mSongRecycleAdapter.getSelectedSong(position));
+        startActivity(PlayerActivity.newIntent(this));
+    }
+
+    @Override
+    public void showData(List<Song> songList) {
+        mSongRecycleAdapter.setData(songList);
+        mRecyclerView.setAdapter(mSongRecycleAdapter);
+    }
+
     private void initUi() {
         TextInputEditText editText = findViewById(R.id.text_input_edit_text);
         mRecyclerView = findViewById(R.id.recycler_view);
@@ -53,20 +69,6 @@ public class MainActivity extends MvpActivity implements SongRecycleAdapter.Song
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
         mRecyclerView.setLayoutManager(gridLayoutManager);
         mSongRecycleAdapter = new SongRecycleAdapter(this);
-        mRecyclerView.setAdapter(mSongRecycleAdapter);
-    }
-
-    @Override
-    public void onClick(int position) {
-        Song currentSong = mSongRecycleAdapter.getSelectedSong(position);
-        Intent intent = new Intent(MainActivity.this, PlayerActivity.class);
-        intent.putExtra("song", currentSong);
-        startActivity(intent);
-    }
-
-    @Override
-    public void showData(List<Song> songList) {
-        mSongRecycleAdapter.setData(songList);
         mRecyclerView.setAdapter(mSongRecycleAdapter);
     }
 

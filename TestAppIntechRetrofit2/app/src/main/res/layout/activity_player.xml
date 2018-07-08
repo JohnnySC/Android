@@ -1,62 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <ImageView
-        android:paddingTop="25dp"
+        android:id="@+id/cover_image_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/playerAlbumCoverView"
-        android:layout_gravity="center_horizontal"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:contentDescription="@string/cover_image_view"
+        android:paddingTop="@dimen/padding_medium" />
 
     <TextView
+        android:id="@+id/track_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/playerSongTextView"
-        android:layout_below="@+id/playerAlbumCoverView"
-        android:layout_centerHorizontal="true"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/playerArtistNameView"
-        android:layout_below="@+id/playerSongTextView"
-        android:layout_centerHorizontal="true"/>
-
-    <Button
-        android:background="@drawable/buttonshape"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Play"
-        android:id="@+id/playButton"
-        android:layout_gravity="right"
-        android:layout_marginTop="25dp"
-        android:layout_below="@+id/playerArtistNameView"
-        android:layout_alignLeft="@+id/pauseButton"
-        android:layout_alignStart="@+id/pauseButton" />
-
-    <Button
-        android:background="@drawable/buttonshape"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Pause"
-        android:id="@+id/pauseButton"
-        android:layout_gravity="right"
-        android:layout_below="@+id/seekBar"
+        android:layout_below="@+id/cover_image_view"
         android:layout_centerHorizontal="true" />
 
-    <SeekBar
+    <TextView
+        android:id="@+id/artist_name_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/seekBar"
-        android:indeterminate="false"
-        android:layout_below="@+id/playButton"
-        android:layout_alignParentRight="true"
+        android:layout_below="@+id/track_text_view"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/play_button"
+        style="@style/Base.TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/pause_button"
+        android:layout_alignStart="@+id/pause_button"
+        android:layout_below="@+id/artist_name_text_view"
+        android:layout_gravity="right"
+        android:layout_marginTop="@dimen/padding_medium"
+        android:text="@string/play"
+        tools:ignore="RtlHardcoded" />
+
+    <Button
+        android:id="@+id/pause_button"
+        style="@style/Base.TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/seek_bar"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="right"
+        android:text="@string/pause"
+        tools:ignore="RtlHardcoded" />
+
+    <SeekBar
+        android:id="@+id/seek_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/play_button"
+        android:clickable="false"
+        android:indeterminate="false" />
 
 </RelativeLayout>

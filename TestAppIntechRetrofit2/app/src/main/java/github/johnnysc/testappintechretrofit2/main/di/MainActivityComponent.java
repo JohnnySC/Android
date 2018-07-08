@@ -8,7 +8,7 @@ import github.johnnysc.testappintechretrofit2.player.di.PlayerModule;
 /**
  * @author Asatryan on 08.07.18
  */
-//@ActivityScope
+@ActivityScope
 @Subcomponent(modules = MainActivityModule.class)
 public interface MainActivityComponent {
 

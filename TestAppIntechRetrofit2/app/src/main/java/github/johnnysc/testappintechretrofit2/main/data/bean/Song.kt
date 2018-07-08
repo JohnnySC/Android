@@ -1,4 +1,4 @@
-package github.johnnysc.testappintechretrofit2.main.di.bean
+package github.johnnysc.testappintechretrofit2.main.data.bean
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName

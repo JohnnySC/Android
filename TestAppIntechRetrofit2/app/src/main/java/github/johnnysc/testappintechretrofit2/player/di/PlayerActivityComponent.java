@@ -1,7 +1,7 @@
 package github.johnnysc.testappintechretrofit2.player.di;
 
 import dagger.Subcomponent;
-import github.johnnysc.testappintechretrofit2.UI.PlayerActivity;
+import github.johnnysc.testappintechretrofit2.player.presentation.PlayerActivity;
 
 /**
  * @author Asatryan on 08.07.18

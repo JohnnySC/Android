@@ -4,7 +4,7 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
-import github.johnnysc.testappintechretrofit2.REST.SongService;
+import github.johnnysc.testappintechretrofit2.main.data.net.SongService;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.CallAdapter;
